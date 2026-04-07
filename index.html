@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cloud9 Kaffee</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="logo.png" alt="Cloud9" class="logo" />
+      <div class="brandText">
+        <div class="brandName">Cloud9 Kaffee</div>
+        <div class="brandSub" id="brandSub">Bestellen • Bedienung rufen • Bezahlen</div>
+      </div>
+    </div>
+    <div class="lang" id="langBtns"></div>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs" id="tabs"></nav>
+    <section id="view"></section>
+  </main>
+
+  <footer class="foot">© Cloud9</footer>
+
+  <div class="modalBackdrop hidden" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalHead">
+        <div class="modalTitle" id="modalTitle">Info</div>
+        <button class="iconBtn" id="modalClose" aria-label="Schließen">✕</button>
+      </div>
+      <div class="modalBody" id="modalBody"></div>
+      <div class="modalFoot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2026-02-28-hotfix1"></script>
+</body>
+</html>

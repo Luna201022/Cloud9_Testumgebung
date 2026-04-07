@@ -1,0 +1,755 @@
+{
+  "categories": [
+    {
+      "id": "coffee_co",
+      "title": "Coffee & Co.",
+      "items": [
+        {
+          "id": "espresso",
+          "name": "Espresso",
+          "price": 2.8
+        },
+        {
+          "id": "cappuccino",
+          "name": "Cappuccino",
+          "price": 4.9
+        },
+        {
+          "id": "kaffee",
+          "name": "Kaffee / entkoffeiniert",
+          "price": 3.5
+        },
+        {
+          "id": "milchkaffee_gross",
+          "name": "Milchkaffee groß",
+          "price": 5.2
+        },
+        {
+          "id": "latte_macchiato",
+          "name": "Latte Macchiato",
+          "price": 5.2
+        }
+      ]
+    },
+    {
+      "id": "coffee_extras",
+      "title": "Extras (Getränke)",
+      "items": [
+        {
+          "id": "milk_alt",
+          "name": "Milchalternativen",
+          "price": 0.3,
+          "desc": "Hafermilch | Sojamilch | Kokosmilch | Laktosefrei",
+          "options": {
+            "choice_multi": false,
+            "choice": [
+              {
+                "label": "Hafermilch",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Sojamilch",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Kokosmilch",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Laktosefrei",
+                "price_delta": 0.0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tee",
+      "title": "Tee",
+      "items": [
+        {
+          "id": "tee_genmaicha",
+          "name": "Japanischer Grüntee Genmaicha",
+          "price": 4.3
+        },
+        {
+          "id": "tee_ingwer",
+          "name": "Frischer Ingwer - Yuzu - Minze",
+          "price": 4.3
+        },
+        {
+          "id": "tee_rosen",
+          "name": "Grüntee - Rosenblüten & blaue Erbsenblüten",
+          "price": 4.3
+        },
+        {
+          "id": "tee_kumquat",
+          "name": "Kumquat-Tee",
+          "price": 4.3
+        }
+      ]
+    },
+    {
+      "id": "softdrinks",
+      "title": "Softdrinks",
+      "items": [
+        {
+          "id": "wasser",
+          "name": "Tafelwasser Still/Sprudel (0,25l)",
+          "price": 3.5
+        },
+        {
+          "id": "cola",
+          "name": "Coca Cola (0,33l)",
+          "price": 3.5
+        },
+        {
+          "id": "saftschorle",
+          "name": "Saftschorle (0,4l)",
+          "price": 5.5,
+          "desc": "Orange / Maracuja"
+        }
+      ]
+    },
+    {
+      "id": "vn_coffee",
+      "title": "Vietnamese Coffee Specialities",
+      "items": [
+        {
+          "id": "caphe_phin",
+          "name": "Cà Phê Phin Việt Nam",
+          "price": 5.9,
+          "desc": "Langsam gebrühter vietnamesischer Phin-Kaffee – pur oder mit süßer Kondensmilch"
+        },
+        {
+          "id": "caphe_sua",
+          "name": "Cà Phê Sữa",
+          "price": 5.9,
+          "desc": "Starker vietnamesischer Robusta Kaffee, mit gesüßter Kondensmilch (kalt oder warm)",
+          "options": {
+            "temperatur": [
+              "kalt",
+              "warm"
+            ]
+          }
+        },
+        {
+          "id": "bac_xiu",
+          "name": "Bạc Xỉu",
+          "price": 6.5,
+          "desc": "Traditioneller vietnamesischer Milchkaffee – mild und süß (kalt oder warm)",
+          "options": {
+            "temperatur": [
+              "kalt",
+              "warm"
+            ]
+          }
+        },
+        {
+          "id": "caphe_cotdua",
+          "name": "Cà Phê Cốt Dừa",
+          "price": 6.5,
+          "desc": "Kräftiger Kaffee mit Kokosmilch & Kondensmilch auf Eis (kalt oder warm)",
+          "options": {
+            "temperatur": [
+              "kalt",
+              "warm"
+            ]
+          }
+        },
+        {
+          "id": "caphe_muoi",
+          "name": "Cà Phê Muối",
+          "price": 6.5,
+          "desc": "Kaffee mit luftiger, leicht gesalzener Cream-Cheese-Schicht (kalt oder warm)",
+          "options": {
+            "temperatur": [
+              "kalt",
+              "warm"
+            ]
+          }
+        },
+        {
+          "id": "caphe_kemtrung",
+          "name": "Cà Phê Kem Trứng",
+          "price": 6.5,
+          "desc": "Kräftiger Kaffee mit Kondensmilch und fluffiger Eigelbhaube"
+        },
+        {
+          "id": "caphe_bo",
+          "name": "Cà Phê Bơ",
+          "price": 6.5,
+          "desc": "Cremiger Avocado-Smoothie, verfeinert mit vietnamesischem Kaffee"
+        },
+        {
+          "id": "matcha_kemmuoi",
+          "name": "Matcha Kem Muối",
+          "price": 6.5,
+          "desc": "Matcha mit leicht gesalzener Cream-Cheese-Schicht (warm)",
+          "options": {
+            "temperatur": [
+              "warm"
+            ]
+          }
+        },
+        {
+          "id": "kakao_kemmuoi",
+          "name": "Kakao Kem Muối",
+          "price": 6.5,
+          "desc": "Kakao mit leicht gesalzener Cream-Cheese-Schicht (warm)",
+          "options": {
+            "temperatur": [
+              "warm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "matcha_creations",
+      "title": "Matcha Creations",
+      "items": [
+        {
+          "id": "matcha_latte",
+          "name": "Matcha Latte",
+          "price": 5.5
+        },
+        {
+          "id": "matcha_cheese_cloud",
+          "name": "Matcha Cheese Cloud",
+          "price": 6.9
+        },
+        {
+          "id": "matcha_mango",
+          "name": "Matcha Mango Latte",
+          "price": 6.5
+        },
+        {
+          "id": "matcha_strawberry",
+          "name": "Matcha Strawberry Latte",
+          "price": 6.5
+        },
+        {
+          "id": "matcha_blueberry",
+          "name": "Matcha Blueberry Latte",
+          "price": 6.5
+        },
+        {
+          "id": "matcha_taro",
+          "name": "Matcha Taro Latte",
+          "price": 6.5
+        },
+        {
+          "id": "espresso_matcha",
+          "name": "Espresso Matcha Latte",
+          "price": 6.5
+        },
+        {
+          "id": "matcha_sesame",
+          "name": "Matcha Black Sesame",
+          "price": 6.5
+        },
+        {
+          "id": "matcha_banana_pudding",
+          "name": "Matcha Banana Pudding",
+          "price": 9.9
+        }
+      ]
+    },
+    {
+      "id": "cloud9_signatures",
+      "title": "Cloud 9 Signature's",
+      "items": [
+        {
+          "id": "matcha_coconut_cloud",
+          "name": "Matcha Coconut Cloud",
+          "price": 6.5,
+          "desc": "Kokosnusswasser mit Matcha-Creme"
+        },
+        {
+          "id": "kakao_coconut_cloud",
+          "name": "Kakao Coconut Cloud",
+          "price": 6.5,
+          "desc": "Kokosnusswasser mit Kakao-Creme"
+        },
+        {
+          "id": "taro_coconut_cloud",
+          "name": "Taro Coconut Cloud",
+          "price": 6.5,
+          "desc": "Kokosnusswasser mit Taro-Creme"
+        },
+        {
+          "id": "coffee_coconut_cloud",
+          "name": "Coffee Coconut Cloud",
+          "price": 6.5,
+          "desc": "Kokosnusswasser mit cremigem Kaffeeschaum"
+        },
+        {
+          "id": "sesame_latte",
+          "name": "Sesame Latte",
+          "price": 5.5,
+          "desc": "Schwarze Sesampaste & aufgeschäumte Milch"
+        },
+        {
+          "id": "taro_latte",
+          "name": "Taro Latte",
+          "price": 5.5,
+          "desc": "Taropulver & aufgeschäumte Milch"
+        },
+        {
+          "id": "nuoc_mia_tac",
+          "name": "Nước Mía Tắc",
+          "price": 6.9,
+          "desc": "Zuckerrohrsaft mit Kumquats"
+        }
+      ]
+    },
+    {
+      "id": "milk_tea",
+      "title": "Milk Tea Series",
+      "items": [
+        {
+          "id": "oolong_milk_tea",
+          "name": "Roasted Oolong Milk Tea",
+          "price": 5.9,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.6
+              }
+            ]
+          }
+        },
+        {
+          "id": "cloudy_avo_coco",
+          "name": "Cloudy Avo Coco",
+          "price": 5.9,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.6
+              }
+            ]
+          }
+        },
+        {
+          "id": "cloudy_taro_coco",
+          "name": "Cloudy Taro Coco",
+          "price": 5.9,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.6
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "brown_sugar",
+      "title": "Brown Sugar Series",
+      "items": [
+        {
+          "id": "brown_sugar_classic",
+          "name": "Brown Sugar Classic",
+          "price": 5.5,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.4
+              }
+            ]
+          }
+        },
+        {
+          "id": "brown_sugar_matcha",
+          "name": "Brown Sugar Matcha",
+          "price": 5.9,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.9
+              }
+            ]
+          }
+        },
+        {
+          "id": "brown_sugar_taro",
+          "name": "Brown Sugar Taro",
+          "price": 5.9,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.9
+              }
+            ]
+          }
+        },
+        {
+          "id": "brown_sugar_dalgona",
+          "name": "Brown Sugar Dalgona",
+          "price": 5.9,
+          "desc": "0,5 l / 0,7 l",
+          "options": {
+            "size": [
+              {
+                "label": "0,5 l",
+                "price_delta": 0
+              },
+              {
+                "label": "0,7 l",
+                "price_delta": 0.9
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "toppings",
+      "title": "Toppings",
+      "items": [
+        {
+          "id": "topping",
+          "name": "Topping (+0,50€)",
+          "price": 0.5,
+          "desc": "Tapioca | Brown Sugar Jelly Ball | Crystal Jelly Ball | Peach Boba | Litchi Boba | Jogurt Boba | Pasion Fruit Boba | Egg Cream | Cream Cheese | Salty Cream | Matcha Cream | Taro Cream",
+          "options": {
+            "choice_multi": true,
+            "choice": [
+              {
+                "label": "Tapioca",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Brown Sugar Jelly Ball",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Crystal Jelly Ball",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Peach Boba",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Litchi Boba",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Jogurt Boba",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Pasion Fruit Boba",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Egg Cream",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Cream Cheese",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Salty Cream",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Matcha Cream",
+                "price_delta": 0.0
+              },
+              {
+                "label": "Taro Cream",
+                "price_delta": 0.0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "yogurt",
+      "title": "Yogurt Series",
+      "items": [
+        {
+          "id": "sticky_purple_rice",
+          "name": "Sticky Purple Rice Yogurt",
+          "price": 6.5,
+          "desc": "Griechischer Joghurt | lilaner Klebreis"
+        },
+        {
+          "id": "golden_peach",
+          "name": "Golden Peach Yogurt",
+          "price": 6.5,
+          "desc": "Griechischer Joghurt | Pfirsich | Kumquats"
+        },
+        {
+          "id": "mangolassi",
+          "name": "Mangolassi",
+          "price": 6.5,
+          "desc": "Griechischer Joghurt | Mango | Kokosmilch | Mangopüree"
+        }
+      ]
+    },
+    {
+      "id": "salad",
+      "title": "Salat",
+      "items": [
+        {
+          "id": "cloud9_salad",
+          "name": "Cloud 9 Salad",
+          "price": 9.9,
+          "desc": "Salat-Mix | Karotten | Mais | Avocado | Cherry-Tomaten | Teriyaki-Sesam Dressing"
+        }
+      ]
+    },
+    {
+      "id": "summerrolls",
+      "title": "Sommerrollen",
+      "items": [
+        {
+          "id": "summerrolls_tofu",
+          "name": "Sommerrollen (Tofu)",
+          "price": 5.9,
+          "desc": "Reispapier | Reisnudeln | Salat-Mix | Karotten"
+        },
+        {
+          "id": "summerrolls_huhn",
+          "name": "Sommerrollen (Hühnerfleisch)",
+          "price": 6.5,
+          "desc": "Reispapier | Reisnudeln | Salat-Mix | Karotten"
+        },
+        {
+          "id": "summerrolls_garnelen",
+          "name": "Sommerrollen (Garnelen)",
+          "price": 6.9,
+          "desc": "Reispapier | Reisnudeln | Salat-Mix | Karotten"
+        }
+      ]
+    },
+    {
+      "id": "eggdrop",
+      "title": "Eggdrop on Cloud9",
+      "items": [
+        {
+          "id": "eggdrop_classic",
+          "name": "EGG DROP Classic Vegetarisch",
+          "price": 11.5,
+          "desc": "Rührei | Tomaten | Rucola | Avocado | Cheddar | Röstzwiebeln | Kresse | Cocktail-Chili Soße"
+        },
+        {
+          "id": "eggdrop_kimchi",
+          "name": "EGG DROP Kimchi & Speck",
+          "price": 11.9,
+          "desc": "Rührei | Avocado | Cheddar | Speck | Kimchi | Röstzwiebeln | Kresse | Cocktail-Chili Soße"
+        },
+        {
+          "id": "eggdrop_chicken",
+          "name": "EGG DROP Chicken",
+          "price": 12.5,
+          "desc": "Rührei | mariniertes Hähnchen | Gurke | Cheddar | Röstzwiebeln | Kresse | Cocktail-Chili Soße"
+        },
+        {
+          "id": "eggdrop_salmon",
+          "name": "EGG DROP Salmon",
+          "price": 12.5,
+          "desc": "Rührei | Avocado | Räucherlachs | Cheddar | Röstzwiebeln | Kresse | Cocktail-Chili Soße"
+        }
+      ]
+    },
+    {
+      "id": "pho",
+      "title": "Pho Soup",
+      "items": [
+        {
+          "id": "pho_tofu",
+          "name": "Pho Soup (Tofu)",
+          "price": 14.9,
+          "desc": "Vietnamesische Reisbandnudelsuppe mit hausgemachter Brühe, Kräutern, Zwiebeln & Lauchzwiebeln"
+        },
+        {
+          "id": "pho_huhn",
+          "name": "Pho Soup (Hühnerfleisch)",
+          "price": 15.9,
+          "desc": "Vietnamesische Reisbandnudelsuppe mit hausgemachter Brühe, Kräutern, Zwiebeln & Lauchzwiebeln"
+        },
+        {
+          "id": "pho_rind",
+          "name": "Pho Soup (Rindfleisch)",
+          "price": 15.9,
+          "desc": "Vietnamesische Reisbandnudelsuppe mit hausgemachter Brühe, Kräutern, Zwiebeln & Lauchzwiebeln"
+        }
+      ]
+    },
+    {
+      "id": "banhmi",
+      "title": "Vietnamese Bánh Mì",
+      "items": [
+        {
+          "id": "banhmi_trung_pate",
+          "name": "Bánh Mì Trứng Pâté",
+          "price": 8.0,
+          "desc": "Spiegelei | Schweineflocken | Pâté | Mayo | vietn. Wurst | Gurke | Karotte-Rettich | Koriander | Röstzwiebeln"
+        },
+        {
+          "id": "banhmi_pate_thapcam",
+          "name": "Bánh Mì Pâté Thập Cẩm",
+          "price": 8.5,
+          "desc": "Char Siu Pork BBQ | Pâté | Mayo | Schweineflocken | vietn. Wurst | Gurke | Karotte-Rettich | Koriander | Röstzwiebeln"
+        },
+        {
+          "id": "banhmi_thit_nuong",
+          "name": "Bánh Mì Thịt Nướng",
+          "price": 8.9,
+          "desc": "Schweinefleisch gegrillt | Mayo | Karotte-Rettich | Gurke | Koriander | Röstzwiebeln"
+        },
+        {
+          "id": "banhmi_ga",
+          "name": "Bánh Mì Gà",
+          "price": 8.9,
+          "desc": "Mariniertes Hähnchen | Eieromelette | Mayo | Karotte-Rettich | Gurke | Koriander | Röstzwiebeln"
+        },
+        {
+          "id": "banhmi_tofu",
+          "name": "Bánh Mì Tofu",
+          "price": 7.9,
+          "desc": "Marinierter Tofu | Mayo | Eieromelette | Karotte-Rettich | Gurke | Koriander | Röstzwiebeln"
+        },
+        {
+          "id": "banhmi_vegan",
+          "name": "Bánh Mì Vegan",
+          "price": 7.9,
+          "desc": "Marinierter Tofu | Pilze | vegane Mayo | Karotte-Rettich | Koriander | Röstzwiebeln"
+        }
+      ]
+    },
+    {
+      "id": "banh_bao",
+      "title": "Bánh Bao",
+      "items": [
+        {
+          "id": "banh_bao_classic",
+          "name": "Bánh Bao",
+          "price": 4.9,
+          "desc": "Bánh bao hấp nhân thịt băm, mộc nhĩ, miến và trứng"
+        }
+      ]
+    },
+    {
+      "id": "croissants",
+      "title": "Croissants",
+      "items": [
+        {
+          "id": "croissant_tuna",
+          "name": "CROISSANT Tuna-Avo Smash",
+          "price": 12.5,
+          "desc": "Spicy Tuna | Mayo | Avocado | Tomate | Spiegelei | Rucola | Beilagensalat"
+        },
+        {
+          "id": "croissant_morning_duo",
+          "name": "CROISSANT Morning Duo",
+          "price": 11.5,
+          "desc": "Chorizo Picante | Paprika-Aufstrich | Gouda | Ei | Beilagensalat"
+        },
+        {
+          "id": "croissant_teriyaki",
+          "name": "CROISSANT Teriyaki Chik",
+          "price": 11.5,
+          "desc": "Honey-Teriyaki-Chicken | Spinat | Spiegelei | Gurke | Parmesan | Beilagensalat"
+        }
+      ]
+    },
+    {
+      "id": "rice_bowls",
+      "title": "Rice Bowls",
+      "items": [
+        {
+          "id": "bibimbap",
+          "name": "CLOUD9 BIBIMBAP",
+          "price": 13.9,
+          "desc": "Reis | Rind | Karotten | Spinat | Paprika | Spiegelei | Sesam | Gochujang | Noriblätter"
+        },
+        {
+          "id": "salmon_poke",
+          "name": "Salmon Poke Love",
+          "price": 14.9,
+          "desc": "Reis | Lachs | Avocado | Ingwer | Noriblätter | Kresse | Sesam | Teriyaki-Chili Mayo"
+        },
+        {
+          "id": "tokyo_teriyaki",
+          "name": "Tokyo Teriyaki Bowl",
+          "price": 13.9,
+          "desc": "Reis | Salat Mix | Teriyaki Chicken | Edamame | Avocado | Sesam | Kresse"
+        },
+        {
+          "id": "vegan_poke",
+          "name": "Vegan Poke Bowl",
+          "price": 12.9,
+          "desc": "Reis | Tofu | Mais | Gurke | Edamame | Salat Mix | Cherry Tomaten"
+        }
+      ]
+    },
+    {
+      "id": "food_extras",
+      "title": "Extras (Food)",
+      "items": [
+        {
+          "id": "extra_ruehrei",
+          "name": "Rührei",
+          "price": 2.5
+        },
+        {
+          "id": "extra_spiegelei",
+          "name": "Spiegelei",
+          "price": 2.5
+        },
+        {
+          "id": "extra_avocado",
+          "name": "Avocado",
+          "price": 2.0
+        }
+      ]
+    }
+  ]
+}

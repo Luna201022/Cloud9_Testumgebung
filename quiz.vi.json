@@ -1,0 +1,409 @@
+[
+  {
+    "q": "Cà phê được làm từ gì?",
+    "choices": [
+      "Từ lá trà",
+      "Từ hạt cà phê rang",
+      "Từ bột ca cao",
+      "Từ ngũ cốc"
+    ],
+    "a": 1,
+    "ex": "Đúng: Cà phê được làm từ hạt cà phê rang."
+  },
+  {
+    "q": "Vì sao nhiều người uống cà phê vào buổi sáng?",
+    "choices": [
+      "Vì giúp tỉnh táo",
+      "Vì không có caffeine",
+      "Vì luôn ngọt",
+      "Vì chỉ uống lạnh"
+    ],
+    "a": 0,
+    "ex": "Đúng: Nhiều người uống cà phê vào buổi sáng vì giúp tỉnh táo."
+  },
+  {
+    "q": "Giống hạt cà phê nào rất phổ biến trên thế giới?",
+    "choices": [
+      "Hoa nhài",
+      "Rooibos",
+      "Arabica",
+      "Matcha"
+    ],
+    "a": 2,
+    "ex": "Đúng: Arabica là một trong những giống cà phê phổ biến nhất trên thế giới."
+  },
+  {
+    "q": "Giống hạt cà phê nào thường chứa nhiều caffeine hơn?",
+    "choices": [
+      "Vani",
+      "Arabica",
+      "Ca cao",
+      "Robusta"
+    ],
+    "a": 3,
+    "ex": "Đúng: Robusta thường chứa nhiều caffeine hơn Arabica."
+  },
+  {
+    "q": "Espresso là gì?",
+    "choices": [
+      "Một món súp mì",
+      "Một loại sốt phô mai",
+      "Một tách cà phê nhỏ, đậm đặc",
+      "Một loại trà"
+    ],
+    "a": 2,
+    "ex": "Đúng: Espresso là một tách cà phê nhỏ, đậm đặc."
+  },
+  {
+    "q": "Cappuccino thường là gì?",
+    "choices": [
+      "Một loại nước ngọt",
+      "Một loại bánh",
+      "Espresso với sữa và bọt sữa",
+      "Một món súp mì"
+    ],
+    "a": 2,
+    "ex": "Đúng: Cappuccino là espresso với sữa và bọt sữa."
+  },
+  {
+    "q": "Latte macchiato là gì?",
+    "choices": [
+      "Sữa với espresso theo từng lớp",
+      "Một loại trà",
+      "Một món súp mì",
+      "Một thành phố ở Ý"
+    ],
+    "a": 0,
+    "ex": "Đúng: Latte macchiato là sữa với espresso theo từng lớp."
+  },
+  {
+    "q": "Americano là gì?",
+    "choices": [
+      "Một loại cocktail không cồn",
+      "Espresso pha loãng với nước nóng",
+      "Một loại gia vị",
+      "Một loại nước ngọt"
+    ],
+    "a": 1,
+    "ex": "Đúng: Americano là espresso pha loãng với nước nóng."
+  },
+  {
+    "q": "Cold brew là gì?",
+    "choices": [
+      "Cà phê ủ lạnh trong thời gian dài",
+      "Một loại trà",
+      "Một loại gia vị",
+      "Một loại bánh"
+    ],
+    "a": 0,
+    "ex": "Đúng: Cold brew là cà phê được ủ lạnh trong thời gian dài."
+  },
+  {
+    "q": "“Decaffeinated” nghĩa là gì?",
+    "choices": [
+      "Một loại nước ngọt",
+      "Một loại bánh",
+      "Một loại trà",
+      "Cà phê có rất ít caffeine"
+    ],
+    "a": 3,
+    "ex": "Đúng: Cà phê decaf có lượng caffeine thấp hơn nhiều."
+  },
+  {
+    "q": "“Single origin” nghĩa là gì?",
+    "choices": [
+      "Một thành phố ở Ý",
+      "Hạt cà phê từ một nguồn gốc cụ thể",
+      "Một loại nước ngọt",
+      "Một món súp mì"
+    ],
+    "a": 1,
+    "ex": "Đúng: “Single origin” nghĩa là hạt cà phê đến từ một nguồn gốc cụ thể."
+  },
+  {
+    "q": "“Blend” trong cà phê nghĩa là gì?",
+    "choices": [
+      "Một loại trà",
+      "Hỗn hợp hạt cà phê từ nhiều nguồn gốc",
+      "Một loại nước ngọt",
+      "Một loại gia vị"
+    ],
+    "a": 1,
+    "ex": "Đúng: Blend là hỗn hợp hạt cà phê từ nhiều nguồn gốc."
+  },
+  {
+    "q": "“Barista” nghĩa là gì?",
+    "choices": [
+      "Người pha chế cà phê chuyên nghiệp",
+      "Một món súp mì",
+      "Một loại bánh",
+      "Một loại trà"
+    ],
+    "a": 0,
+    "ex": "Đúng: Barista là người pha chế cà phê chuyên nghiệp."
+  },
+  {
+    "q": "“Bọt sữa” trong cà phê nghĩa là gì?",
+    "choices": [
+      "Một loại cocktail không cồn",
+      "Một loại nước ngọt",
+      "Sữa được đánh bọt để tạo độ mịn",
+      "Một loại gia vị"
+    ],
+    "a": 2,
+    "ex": "Đúng: Bọt sữa là sữa được đánh bọt để tạo độ mịn."
+  },
+  {
+    "q": "“Mức độ rang” nghĩa là gì?",
+    "choices": [
+      "Một loại nước ngọt",
+      "Mức độ hạt cà phê được rang nhạt hay đậm",
+      "Một thành phố ở Ý",
+      "Một loại gia vị"
+    ],
+    "a": 1,
+    "ex": "Đúng: Mức độ rang cho biết hạt cà phê được rang nhạt hay đậm."
+  },
+  {
+    "q": "Quả cà phê (coffee cherry) là gì?",
+    "choices": [
+      "Một loại cocktail không cồn",
+      "Quả chứa hạt cà phê bên trong",
+      "Một món súp mì",
+      "Một loại bánh"
+    ],
+    "a": 1,
+    "ex": "Đúng: Quả cà phê là quả chứa hạt cà phê bên trong."
+  },
+  {
+    "q": "Cà phê lọc là gì?",
+    "choices": [
+      "Một món súp mì",
+      "Một loại trà",
+      "Cà phê chảy qua bộ lọc",
+      "Một loại nước ngọt"
+    ],
+    "a": 2,
+    "ex": "Đúng: Cà phê lọc là cà phê chảy qua bộ lọc."
+  },
+  {
+    "q": "French press là gì?",
+    "choices": [
+      "Dụng cụ pha cà phê bằng cách ủ rồi ép",
+      "Một loại trà",
+      "Một loại cocktail không cồn",
+      "Một món súp mì"
+    ],
+    "a": 0,
+    "ex": "Đúng: French press là dụng cụ pha cà phê bằng cách ủ rồi ép."
+  },
+  {
+    "q": "Doppio là gì?",
+    "choices": [
+      "Một ly espresso đôi",
+      "Một loại bánh",
+      "Một loại nước ngọt",
+      "Một loại sốt phô mai"
+    ],
+    "a": 0,
+    "ex": "Đúng: Doppio là một ly espresso đôi."
+  },
+  {
+    "q": "Flat white là gì?",
+    "choices": [
+      "Espresso với sữa mịn, béo",
+      "Một loại gia vị",
+      "Một loại sốt phô mai",
+      "Một loại cocktail không cồn"
+    ],
+    "a": 0,
+    "ex": "Đúng: Flat white là espresso với sữa mịn, béo."
+  },
+  {
+    "q": "Mocha là gì?",
+    "choices": [
+      "Một món súp mì",
+      "Một loại bánh",
+      "Cà phê với ca cao/sô cô la",
+      "Một thành phố ở Ý"
+    ],
+    "a": 2,
+    "ex": "Đúng: Mocha là cà phê với ca cao hoặc sô cô la."
+  },
+  {
+    "q": "Affogato là gì?",
+    "choices": [
+      "Một loại sốt phô mai",
+      "Một loại trà",
+      "Một món súp mì",
+      "Espresso rưới lên kem vani"
+    ],
+    "a": 3,
+    "ex": "Đúng: Affogato là espresso rưới lên kem vani."
+  },
+  {
+    "q": "Vì sao nước sạch quan trọng đối với cà phê?",
+    "choices": [
+      "Vì làm đổi màu cốc",
+      "Vì làm tăng gấp đôi caffeine",
+      "Vì thay thế đường",
+      "Vì ảnh hưởng mạnh đến hương vị"
+    ],
+    "a": 3,
+    "ex": "Đúng: Nước sạch ảnh hưởng mạnh đến hương vị cà phê."
+  },
+  {
+    "q": "Điều gì có thể làm cà phê bị đắng?",
+    "choices": [
+      "Quá nhiều đường",
+      "Quá nhiều đá",
+      "Chiết xuất quá lâu hoặc nước quá nóng",
+      "Uống quá ít tách"
+    ],
+    "a": 2,
+    "ex": "Đúng: Chiết xuất quá lâu hoặc nước quá nóng có thể làm cà phê bị đắng."
+  },
+  {
+    "q": "Cà phê đá cổ điển là gì?",
+    "choices": [
+      "Trà với đá",
+      "Cà phê nóng không có cốc",
+      "Cà phê lạnh với đá, thường kèm sữa hoặc vani",
+      "Nước với ca cao"
+    ],
+    "a": 2,
+    "ex": "Đúng: Cà phê đá cổ điển là cà phê lạnh với đá, thường kèm sữa hoặc vani."
+  },
+  {
+    "q": "Vì sao nhiều người dùng máy xay cà phê?",
+    "choices": [
+      "Để cà phê trở thành decaf",
+      "Để cà phê tự động ngọt",
+      "Để không cần nước",
+      "Để có hương thơm tốt hơn từ cà phê xay tươi"
+    ],
+    "a": 3,
+    "ex": "Đúng: Cà phê xay tươi có hương thơm tốt hơn."
+  },
+  {
+    "q": "Thành phần nào làm cà phê có vị sô cô la?",
+    "choices": [
+      "Hẹ",
+      "Ca cao hoặc sô cô la",
+      "Nước tương",
+      "Mù tạt"
+    ],
+    "a": 1,
+    "ex": "Đúng: Ca cao hoặc sô cô la tạo vị sô cô la cho cà phê."
+  },
+  {
+    "q": "“To go” trong quán cà phê nghĩa là gì?",
+    "choices": [
+      "Đông lạnh",
+      "Mang đi",
+      "Hâm nóng",
+      "Đổi"
+    ],
+    "a": 1,
+    "ex": "Đúng: “To go” nghĩa là mang đi."
+  },
+  {
+    "q": "Loại sữa thay thế nào phổ biến trong quán cà phê?",
+    "choices": [
+      "Nước sốt",
+      "Sữa yến mạch",
+      "Nước tương",
+      "Nước mắm"
+    ],
+    "a": 1,
+    "ex": "Đúng: Sữa yến mạch là loại sữa thay thế phổ biến trong quán cà phê."
+  },
+  {
+    "q": "Nền tảng chung của cappuccino và latte là gì?",
+    "choices": [
+      "Nước",
+      "Espresso",
+      "Trà",
+      "Ca cao"
+    ],
+    "a": 1,
+    "ex": "Đúng: Cả cappuccino và latte đều dựa trên espresso."
+  },
+  {
+    "q": "Điều gì thường xảy ra với cà phê rang đậm?",
+    "choices": [
+      "Cà phê trở thành decaf",
+      "Cà phê mặn hơn",
+      "Cà phê luôn có vị trái cây hơn",
+      "Cà phê có vị đậm và mùi rang mạnh hơn"
+    ],
+    "a": 3,
+    "ex": "Đúng: Cà phê rang đậm thường có vị đậm và mùi rang mạnh hơn."
+  },
+  {
+    "q": "Espresso macchiato là gì?",
+    "choices": [
+      "Cold brew với kem",
+      "Sữa với nhiều siro",
+      "Cà phê lọc với đá",
+      "Espresso với một ít sữa hoặc bọt sữa"
+    ],
+    "a": 3,
+    "ex": "Đúng: Espresso macchiato là espresso với một ít sữa hoặc bọt sữa."
+  },
+  {
+    "q": "Phát biểu nào thường đúng?",
+    "choices": [
+      "Cà phê lọc không bao giờ có caffeine",
+      "Cà phê luôn phải uống lạnh",
+      "Cà phê chỉ gồm đường",
+      "Espresso đậm đặc hơn cà phê lọc"
+    ],
+    "a": 3,
+    "ex": "Đúng: Espresso đậm đặc hơn cà phê lọc."
+  },
+  {
+    "q": "Cà phê hòa tan là gì?",
+    "choices": [
+      "Cà phê tan trực tiếp trong nước",
+      "Cà phê không cần nước",
+      "Cà phê làm từ ca cao",
+      "Cà phê làm từ lá trà"
+    ],
+    "a": 0,
+    "ex": "Đúng: Cà phê hòa tan tan trực tiếp trong nước."
+  },
+  {
+    "q": "“Shot” trong quán cà phê là gì?",
+    "choices": [
+      "Một ly sinh tố",
+      "Một phần nhỏ espresso",
+      "Một miếng bánh",
+      "Một ly nước"
+    ],
+    "a": 1,
+    "ex": "Đúng: “Shot” là một phần nhỏ espresso."
+  },
+  {
+    "q": "Vì sao quán cà phê vệ sinh máy xay thường xuyên?",
+    "choices": [
+      "Để cặn cũ không ảnh hưởng đến hương vị",
+      "Để hạt cà phê to hơn",
+      "Để tăng caffeine",
+      "Để cà phê ngọt hơn"
+    ],
+    "a": 0,
+    "ex": "Đúng: Cặn cà phê cũ có thể ảnh hưởng đến hương vị, nên cần vệ sinh thường xuyên."
+  },
+  {
+    "q": "Tùy chọn nào (gần như) không có caffeine?",
+    "choices": [
+      "Cà phê decaf",
+      "Doppio",
+      "Ristretto",
+      "Một shot espresso"
+    ],
+    "a": 0,
+    "ex": "Đúng: Cà phê decaf có rất ít caffeine."
+  }
+]

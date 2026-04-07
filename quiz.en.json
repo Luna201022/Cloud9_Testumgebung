@@ -1,0 +1,442 @@
+[
+  {
+    "q": "What is coffee made from?",
+    "choices": [
+      "From tea leaves",
+      "From roasted coffee beans",
+      "From cocoa powder",
+      "From grains"
+    ],
+    "a": 1,
+    "ex": "Correct: Coffee is made from roasted coffee beans."
+  },
+  {
+    "q": "Why do many people drink coffee in the morning?",
+    "choices": [
+      "Because it wakes you up",
+      "Because it contains no caffeine",
+      "Because it is always sweet",
+      "Because it is only drunk cold"
+    ],
+    "a": 0,
+    "ex": "Correct: Many people drink coffee in the morning because it helps them wake up."
+  },
+  {
+    "q": "Which bean variety is very common worldwide?",
+    "choices": [
+      "Jasmine",
+      "Rooibos",
+      "Arabica",
+      "Matcha"
+    ],
+    "a": 2,
+    "ex": "Correct: Arabica is one of the most widespread coffee bean varieties worldwide."
+  },
+  {
+    "q": "Which bean variety often contains more caffeine?",
+    "choices": [
+      "Vanilla",
+      "Arabica",
+      "Cocoa",
+      "Robusta"
+    ],
+    "a": 3,
+    "ex": "Correct: Robusta often contains more caffeine than Arabica."
+  },
+  {
+    "q": "What is an espresso?",
+    "choices": [
+      "A noodle soup",
+      "A cheese dip",
+      "A small, concentrated coffee",
+      "A type of tea"
+    ],
+    "a": 2,
+    "ex": "Correct: An espresso is a small, concentrated coffee."
+  },
+  {
+    "q": "What is a cappuccino typically?",
+    "choices": [
+      "A soft drink",
+      "A type of cake",
+      "Espresso with milk and milk foam",
+      "A noodle soup"
+    ],
+    "a": 2,
+    "ex": "Correct: A cappuccino consists of espresso with milk and milk foam."
+  },
+  {
+    "q": "What is a latte macchiato?",
+    "choices": [
+      "Milk with espresso layered",
+      "A type of tea",
+      "A noodle soup",
+      "A city in Italy"
+    ],
+    "a": 0,
+    "ex": "Correct: A latte macchiato is milk with espresso layered on top."
+  },
+  {
+    "q": "What is an Americano?",
+    "choices": [
+      "A non-alcoholic cocktail",
+      "Espresso diluted with hot water",
+      "A spice",
+      "A soft drink"
+    ],
+    "a": 1,
+    "ex": "Correct: An Americano is espresso diluted with hot water."
+  },
+  {
+    "q": "What is cold brew?",
+    "choices": [
+      "Coffee brewed with cold water over a long time",
+      "A type of tea",
+      "A spice",
+      "A type of cake"
+    ],
+    "a": 0,
+    "ex": "Correct: Cold brew is coffee brewed with cold water over a long time."
+  },
+  {
+    "q": "What does \"decaffeinated\" mean?",
+    "choices": [
+      "A soft drink",
+      "A type of cake",
+      "A type of tea",
+      "Coffee with greatly reduced caffeine"
+    ],
+    "a": 3,
+    "ex": "Correct: Decaffeinated coffee has a greatly reduced caffeine content."
+  },
+  {
+    "q": "What does \"single origin\" mean?",
+    "choices": [
+      "A city in Italy",
+      "Beans from one specific origin",
+      "A soft drink",
+      "A noodle soup"
+    ],
+    "a": 1,
+    "ex": "Correct: Single origin means beans from one specific origin."
+  },
+  {
+    "q": "What does \"blend\" mean in coffee?",
+    "choices": [
+      "A type of tea",
+      "A mix of beans from different origins",
+      "A soft drink",
+      "A spice"
+    ],
+    "a": 1,
+    "ex": "Correct: A blend is a mix of beans from different origins."
+  },
+  {
+    "q": "What does \"barista\" mean?",
+    "choices": [
+      "A person who prepares coffee professionally",
+      "A noodle soup",
+      "A type of cake",
+      "A type of tea"
+    ],
+    "a": 0,
+    "ex": "Correct: A barista is a person who prepares coffee professionally."
+  },
+  {
+    "q": "What does \"milk foam\" mean in coffee?",
+    "choices": [
+      "A non-alcoholic cocktail",
+      "A soft drink",
+      "Frothed milk for a creamy texture",
+      "A spice"
+    ],
+    "a": 2,
+    "ex": "Correct: Milk foam is frothed milk that creates a creamy texture."
+  },
+  {
+    "q": "What does \"roast level\" mean?",
+    "choices": [
+      "A soft drink",
+      "How light or dark the beans are roasted",
+      "A city in Italy",
+      "A spice"
+    ],
+    "a": 1,
+    "ex": "Correct: The roast level describes how light or dark the beans are roasted."
+  },
+  {
+    "q": "What is the coffee cherry?",
+    "choices": [
+      "A non-alcoholic cocktail",
+      "The fruit that contains the coffee bean",
+      "A noodle soup",
+      "A type of cake"
+    ],
+    "a": 1,
+    "ex": "Correct: The coffee cherry is the fruit that contains the coffee bean."
+  },
+  {
+    "q": "What is filter coffee?",
+    "choices": [
+      "A noodle soup",
+      "A type of tea",
+      "Coffee that runs through a filter",
+      "A soft drink"
+    ],
+    "a": 2,
+    "ex": "Correct: Filter coffee is coffee that runs through a filter."
+  },
+  {
+    "q": "What is a French press?",
+    "choices": [
+      "A pot where coffee steeps and is then pressed",
+      "A type of tea",
+      "A non-alcoholic cocktail",
+      "A noodle soup"
+    ],
+    "a": 0,
+    "ex": "Correct: A French press is a pot where coffee steeps and is then pressed."
+  },
+  {
+    "q": "What is a doppio?",
+    "choices": [
+      "A double espresso",
+      "A type of cake",
+      "A soft drink",
+      "A cheese dip"
+    ],
+    "a": 0,
+    "ex": "Correct: A doppio is a double espresso."
+  },
+  {
+    "q": "What is a flat white?",
+    "choices": [
+      "Espresso with fine, creamy milk",
+      "A spice",
+      "A cheese dip",
+      "A non-alcoholic cocktail"
+    ],
+    "a": 0,
+    "ex": "Correct: A flat white is espresso with fine, creamy milk."
+  },
+  {
+    "q": "What is a mocha?",
+    "choices": [
+      "A noodle soup",
+      "A type of cake",
+      "Coffee with cocoa/chocolate",
+      "A city in Italy"
+    ],
+    "a": 2,
+    "ex": "Correct: A mocha is coffee with cocoa or chocolate."
+  },
+  {
+    "q": "What is an affogato?",
+    "choices": [
+      "A cheese dip",
+      "A type of tea",
+      "A noodle soup",
+      "Espresso over vanilla ice cream"
+    ],
+    "a": 3,
+    "ex": "Correct: An affogato is espresso over vanilla ice cream."
+  },
+  {
+    "q": "What is coffee made from?",
+    "choices": [
+      "From tea leaves",
+      "From roasted coffee beans",
+      "From cocoa powder",
+      "From grains"
+    ],
+    "a": 1,
+    "ex": "Correct: Coffee is made from roasted coffee beans."
+  },
+  {
+    "q": "Why is fresh water important for coffee?",
+    "choices": [
+      "Because it colors the cup",
+      "Because it doubles the caffeine",
+      "Because it replaces sugar",
+      "Because it strongly affects the taste"
+    ],
+    "a": 3,
+    "ex": "Correct: Fresh water strongly affects the taste of coffee."
+  },
+  {
+    "q": "What can make coffee taste bitter?",
+    "choices": [
+      "Too much sugar",
+      "Too many ice cubes",
+      "Extracted too long or too hot",
+      "Too few cups"
+    ],
+    "a": 2,
+    "ex": "Correct: Extracting coffee too long or with water that is too hot can make it bitter."
+  },
+  {
+    "q": "What is a classic iced coffee?",
+    "choices": [
+      "Tea with ice",
+      "Hot coffee without a cup",
+      "Cold coffee with ice, often with milk or vanilla",
+      "Water with cocoa"
+    ],
+    "a": 2,
+    "ex": "Correct: A classic iced coffee is cold coffee with ice, often with milk or vanilla."
+  },
+  {
+    "q": "Why do many people use a coffee grinder?",
+    "choices": [
+      "So that coffee becomes decaffeinated",
+      "So that coffee becomes automatically sweet",
+      "So that no water is needed",
+      "For more aroma from freshly ground coffee"
+    ],
+    "a": 3,
+    "ex": "Correct: Freshly ground coffee has more aroma."
+  },
+  {
+    "q": "Which ingredient makes coffee taste chocolatey?",
+    "choices": [
+      "Chives",
+      "Cocoa or chocolate",
+      "Soy sauce",
+      "Mustard"
+    ],
+    "a": 1,
+    "ex": "Correct: Cocoa or chocolate makes coffee taste chocolatey."
+  },
+  {
+    "q": "What does \"to go\" mean in a café?",
+    "choices": [
+      "To freeze",
+      "To take away",
+      "To reheat",
+      "To exchange"
+    ],
+    "a": 1,
+    "ex": "Correct: \"To go\" means to take away."
+  },
+  {
+    "q": "Which milk alternative is common in cafés?",
+    "choices": [
+      "Gravy",
+      "Oat milk",
+      "Soy sauce",
+      "Fish sauce"
+    ],
+    "a": 1,
+    "ex": "Correct: Oat milk is a common milk alternative in cafés."
+  },
+  {
+    "q": "Which bean variety is very common worldwide?",
+    "choices": [
+      "Jasmine",
+      "Rooibos",
+      "Arabica",
+      "Matcha"
+    ],
+    "a": 2,
+    "ex": "Correct: Arabica is one of the most widespread coffee bean varieties worldwide."
+  },
+  {
+    "q": "Which bean variety often contains more caffeine?",
+    "choices": [
+      "Vanilla",
+      "Arabica",
+      "Cocoa",
+      "Robusta"
+    ],
+    "a": 3,
+    "ex": "Correct: Robusta often contains more caffeine than Arabica."
+  },
+  {
+    "q": "Which base is the same for cappuccino and latte?",
+    "choices": [
+      "Water",
+      "Espresso",
+      "Tea",
+      "Cocoa"
+    ],
+    "a": 1,
+    "ex": "Correct: Both cappuccino and latte are based on espresso."
+  },
+  {
+    "q": "What often happens with darker roasts?",
+    "choices": [
+      "They become decaffeinated",
+      "They become saltier",
+      "They always become fruitier",
+      "The coffee tastes stronger and roastier"
+    ],
+    "a": 3,
+    "ex": "Correct: Darker roasts often taste stronger and roastier."
+  },
+  {
+    "q": "What is an espresso macchiato?",
+    "choices": [
+      "Cold brew with cream",
+      "Milk with lots of syrup",
+      "Filter coffee with ice",
+      "Espresso with a small splash of milk or foam"
+    ],
+    "a": 3,
+    "ex": "Correct: An espresso macchiato is espresso with a small splash of milk or foam."
+  },
+  {
+    "q": "Which statement is usually true?",
+    "choices": [
+      "Filter coffee never contains caffeine",
+      "Coffee must always be cold",
+      "Coffee consists only of sugar",
+      "Espresso is more concentrated than filter coffee"
+    ],
+    "a": 3,
+    "ex": "Correct: Espresso is more concentrated than filter coffee."
+  },
+  {
+    "q": "What is instant coffee?",
+    "choices": [
+      "Coffee that dissolves directly in water",
+      "Coffee without water",
+      "Coffee made from cocoa",
+      "Coffee made from tea leaves"
+    ],
+    "a": 0,
+    "ex": "Correct: Instant coffee dissolves directly in water."
+  },
+  {
+    "q": "What is a 'shot' in a café?",
+    "choices": [
+      "A smoothie",
+      "A small portion of espresso",
+      "A piece of cake",
+      "A glass of water"
+    ],
+    "a": 1,
+    "ex": "Correct: A 'shot' in a café is a small portion of espresso."
+  },
+  {
+    "q": "Why do cafés clean their grinders regularly?",
+    "choices": [
+      "So old coffee residue does not affect the taste",
+      "So the beans get bigger",
+      "So the caffeine increases",
+      "So coffee becomes sweeter"
+    ],
+    "a": 0,
+    "ex": "Correct: Old coffee residue can affect the taste, so grinders are cleaned regularly."
+  },
+  {
+    "q": "Which option is (more) caffeine-free?",
+    "choices": [
+      "Decaffeinated coffee",
+      "Doppio",
+      "Ristretto",
+      "Espresso shot"
+    ],
+    "a": 0,
+    "ex": "Correct: Decaffeinated coffee contains much less caffeine."
+  }
+]

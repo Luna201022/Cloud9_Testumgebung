@@ -1,0 +1,9 @@
+/app.js
+  Cache-Control: no-store
+
+/index.html
+  Cache-Control: no-store
+
+/menu.de.json
+  Cache-Control: no-store
+

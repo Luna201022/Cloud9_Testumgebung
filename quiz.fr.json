@@ -1,0 +1,409 @@
+[
+  {
+    "q": "De quoi est fait le café ?",
+    "choices": [
+      "De feuilles de thé",
+      "De grains de café torréfiés",
+      "De poudre de cacao",
+      "De céréales"
+    ],
+    "a": 1,
+    "ex": "Correct : le café est fait à partir de grains de café torréfiés."
+  },
+  {
+    "q": "Pourquoi beaucoup de gens boivent-ils du café le matin ?",
+    "choices": [
+      "Parce que cela réveille",
+      "Parce qu’il ne contient pas de caféine",
+      "Parce qu’il est toujours sucré",
+      "Parce qu’on ne le boit que froid"
+    ],
+    "a": 0,
+    "ex": "Correct : beaucoup de gens boivent du café le matin parce que cela aide à se réveiller."
+  },
+  {
+    "q": "Quelle variété de grains est très répandue dans le monde ?",
+    "choices": [
+      "Jasmin",
+      "Rooibos",
+      "Arabica",
+      "Matcha"
+    ],
+    "a": 2,
+    "ex": "Correct : l’Arabica est l’une des variétés de café les plus répandues au monde."
+  },
+  {
+    "q": "Quelle variété de grains contient souvent plus de caféine ?",
+    "choices": [
+      "Vanille",
+      "Arabica",
+      "Cacao",
+      "Robusta"
+    ],
+    "a": 3,
+    "ex": "Correct : le Robusta contient souvent plus de caféine que l’Arabica."
+  },
+  {
+    "q": "Qu’est-ce qu’un espresso ?",
+    "choices": [
+      "Une soupe de nouilles",
+      "Une sauce au fromage",
+      "Un petit café concentré",
+      "Un type de thé"
+    ],
+    "a": 2,
+    "ex": "Correct : un espresso est un petit café concentré."
+  },
+  {
+    "q": "Qu’est-ce qu’un cappuccino en général ?",
+    "choices": [
+      "Une boisson gazeuse",
+      "Un type de gâteau",
+      "Un espresso avec du lait et de la mousse de lait",
+      "Une soupe de nouilles"
+    ],
+    "a": 2,
+    "ex": "Correct : un cappuccino est composé d’un espresso avec du lait et de la mousse de lait."
+  },
+  {
+    "q": "Qu’est-ce qu’un latte macchiato ?",
+    "choices": [
+      "Du lait avec de l’espresso en couches",
+      "Un type de thé",
+      "Une soupe de nouilles",
+      "Une ville en Italie"
+    ],
+    "a": 0,
+    "ex": "Correct : un latte macchiato est du lait avec de l’espresso en couches."
+  },
+  {
+    "q": "Qu’est-ce qu’un americano ?",
+    "choices": [
+      "Un cocktail sans alcool",
+      "Un espresso allongé à l’eau chaude",
+      "Une épice",
+      "Une boisson gazeuse"
+    ],
+    "a": 1,
+    "ex": "Correct : un americano est un espresso allongé à l’eau chaude."
+  },
+  {
+    "q": "Qu’est-ce que le cold brew ?",
+    "choices": [
+      "Du café infusé à froid pendant longtemps",
+      "Un type de thé",
+      "Une épice",
+      "Un type de gâteau"
+    ],
+    "a": 0,
+    "ex": "Correct : le cold brew est du café infusé à froid pendant longtemps."
+  },
+  {
+    "q": "Que signifie « décaféiné » ?",
+    "choices": [
+      "Une boisson gazeuse",
+      "Un type de gâteau",
+      "Un type de thé",
+      "Du café avec beaucoup moins de caféine"
+    ],
+    "a": 3,
+    "ex": "Correct : le café décaféiné contient beaucoup moins de caféine."
+  },
+  {
+    "q": "Que signifie « single origin » ?",
+    "choices": [
+      "Une ville en Italie",
+      "Des grains provenant d’une seule origine",
+      "Une boisson gazeuse",
+      "Une soupe de nouilles"
+    ],
+    "a": 1,
+    "ex": "Correct : « single origin » signifie que les grains proviennent d’une seule origine."
+  },
+  {
+    "q": "Que signifie « blend » pour le café ?",
+    "choices": [
+      "Un type de thé",
+      "Un mélange de grains de différentes origines",
+      "Une boisson gazeuse",
+      "Une épice"
+    ],
+    "a": 1,
+    "ex": "Correct : un blend est un mélange de grains de différentes origines."
+  },
+  {
+    "q": "Que signifie « barista » ?",
+    "choices": [
+      "Une personne qui prépare le café professionnellement",
+      "Une soupe de nouilles",
+      "Un type de gâteau",
+      "Un type de thé"
+    ],
+    "a": 0,
+    "ex": "Correct : un barista est une personne qui prépare le café professionnellement."
+  },
+  {
+    "q": "Que signifie « mousse de lait » dans le café ?",
+    "choices": [
+      "Un cocktail sans alcool",
+      "Une boisson gazeuse",
+      "Du lait moussé pour une texture crémeuse",
+      "Une épice"
+    ],
+    "a": 2,
+    "ex": "Correct : la mousse de lait est du lait moussé qui donne une texture crémeuse."
+  },
+  {
+    "q": "Que signifie le « degré de torréfaction » ?",
+    "choices": [
+      "Une boisson gazeuse",
+      "À quel point les grains sont clairs ou foncés",
+      "Une ville en Italie",
+      "Une épice"
+    ],
+    "a": 1,
+    "ex": "Correct : le degré de torréfaction décrit à quel point les grains sont clairs ou foncés."
+  },
+  {
+    "q": "Qu’est-ce que la cerise de café ?",
+    "choices": [
+      "Un cocktail sans alcool",
+      "Le fruit qui contient le grain de café",
+      "Une soupe de nouilles",
+      "Un type de gâteau"
+    ],
+    "a": 1,
+    "ex": "Correct : la cerise de café est le fruit qui contient le grain de café."
+  },
+  {
+    "q": "Qu’est-ce que le café filtre ?",
+    "choices": [
+      "Une soupe de nouilles",
+      "Un type de thé",
+      "Du café qui passe à travers un filtre",
+      "Une boisson gazeuse"
+    ],
+    "a": 2,
+    "ex": "Correct : le café filtre est du café qui passe à travers un filtre."
+  },
+  {
+    "q": "Qu’est-ce qu’une cafetière à piston (French press) ?",
+    "choices": [
+      "Une cafetière où le café infuse puis est pressé",
+      "Un type de thé",
+      "Un cocktail sans alcool",
+      "Une soupe de nouilles"
+    ],
+    "a": 0,
+    "ex": "Correct : une cafetière à piston permet d’infuser le café puis de le presser."
+  },
+  {
+    "q": "Qu’est-ce qu’un doppio ?",
+    "choices": [
+      "Un double espresso",
+      "Un type de gâteau",
+      "Une boisson gazeuse",
+      "Une sauce au fromage"
+    ],
+    "a": 0,
+    "ex": "Correct : un doppio est un double espresso."
+  },
+  {
+    "q": "Qu’est-ce qu’un flat white ?",
+    "choices": [
+      "Un espresso avec du lait fin et crémeux",
+      "Une épice",
+      "Une sauce au fromage",
+      "Un cocktail sans alcool"
+    ],
+    "a": 0,
+    "ex": "Correct : un flat white est un espresso avec du lait fin et crémeux."
+  },
+  {
+    "q": "Qu’est-ce qu’un mocha ?",
+    "choices": [
+      "Une soupe de nouilles",
+      "Un type de gâteau",
+      "Du café avec du cacao/chocolat",
+      "Une ville en Italie"
+    ],
+    "a": 2,
+    "ex": "Correct : un mocha est du café avec du cacao ou du chocolat."
+  },
+  {
+    "q": "Qu’est-ce qu’un affogato ?",
+    "choices": [
+      "Une sauce au fromage",
+      "Un type de thé",
+      "Une soupe de nouilles",
+      "Un espresso sur de la glace à la vanille"
+    ],
+    "a": 3,
+    "ex": "Correct : un affogato est un espresso versé sur de la glace à la vanille."
+  },
+  {
+    "q": "Pourquoi l’eau fraîche est-elle importante pour le café ?",
+    "choices": [
+      "Parce qu’elle colore la tasse",
+      "Parce qu’elle double la caféine",
+      "Parce qu’elle remplace le sucre",
+      "Parce qu’elle influence fortement le goût"
+    ],
+    "a": 3,
+    "ex": "Correct : l’eau fraîche influence fortement le goût du café."
+  },
+  {
+    "q": "Qu’est-ce qui peut rendre le café amer ?",
+    "choices": [
+      "Trop de sucre",
+      "Trop de glaçons",
+      "Une extraction trop longue ou trop chaude",
+      "Trop peu de tasses"
+    ],
+    "a": 2,
+    "ex": "Correct : une extraction trop longue ou une eau trop chaude peut rendre le café amer."
+  },
+  {
+    "q": "Qu’est-ce qu’un café glacé classique ?",
+    "choices": [
+      "Du thé avec des glaçons",
+      "Du café chaud sans tasse",
+      "Du café froid avec de la glace, souvent avec du lait ou de la vanille",
+      "De l’eau avec du cacao"
+    ],
+    "a": 2,
+    "ex": "Correct : un café glacé classique est du café froid avec de la glace, souvent avec du lait ou de la vanille."
+  },
+  {
+    "q": "Pourquoi beaucoup de gens utilisent-ils un moulin à café ?",
+    "choices": [
+      "Pour que le café devienne décaféiné",
+      "Pour que le café devienne automatiquement sucré",
+      "Pour ne pas avoir besoin d’eau",
+      "Pour plus d’arôme grâce au café fraîchement moulu"
+    ],
+    "a": 3,
+    "ex": "Correct : le café fraîchement moulu a plus d’arôme."
+  },
+  {
+    "q": "Quel ingrédient donne un goût chocolaté au café ?",
+    "choices": [
+      "Ciboulette",
+      "Cacao ou chocolat",
+      "Sauce soja",
+      "Moutarde"
+    ],
+    "a": 1,
+    "ex": "Correct : le cacao ou le chocolat donnent un goût chocolaté au café."
+  },
+  {
+    "q": "Que signifie « à emporter / to go » dans un café ?",
+    "choices": [
+      "Congeler",
+      "À emporter",
+      "Réchauffer",
+      "Échanger"
+    ],
+    "a": 1,
+    "ex": "Correct : « to go » signifie à emporter."
+  },
+  {
+    "q": "Quelle alternative au lait est courante dans les cafés ?",
+    "choices": [
+      "Sauce",
+      "Lait d’avoine",
+      "Sauce soja",
+      "Sauce de poisson"
+    ],
+    "a": 1,
+    "ex": "Correct : le lait d’avoine est une alternative courante au lait dans les cafés."
+  },
+  {
+    "q": "Quelle base est la même pour le cappuccino et le latte ?",
+    "choices": [
+      "L’eau",
+      "L’espresso",
+      "Le thé",
+      "Le cacao"
+    ],
+    "a": 1,
+    "ex": "Correct : le cappuccino et le latte sont tous deux à base d’espresso."
+  },
+  {
+    "q": "Que se passe-t-il souvent avec une torréfaction plus foncée ?",
+    "choices": [
+      "Le café devient décaféiné",
+      "Le café devient plus salé",
+      "Le café devient toujours plus fruité",
+      "Le café a un goût plus fort et plus torréfié"
+    ],
+    "a": 3,
+    "ex": "Correct : les torréfactions plus foncées ont souvent un goût plus fort et plus torréfié."
+  },
+  {
+    "q": "Qu’est-ce qu’un espresso macchiato ?",
+    "choices": [
+      "Un cold brew avec de la crème",
+      "Du lait avec beaucoup de sirop",
+      "Du café filtre avec de la glace",
+      "Un espresso avec un peu de lait ou de mousse"
+    ],
+    "a": 3,
+    "ex": "Correct : un espresso macchiato est un espresso avec un peu de lait ou de mousse."
+  },
+  {
+    "q": "Quelle affirmation est généralement vraie ?",
+    "choices": [
+      "Le café filtre ne contient jamais de caféine",
+      "Le café doit toujours être froid",
+      "Le café est composé uniquement de sucre",
+      "L’espresso est plus concentré que le café filtre"
+    ],
+    "a": 3,
+    "ex": "Correct : l’espresso est plus concentré que le café filtre."
+  },
+  {
+    "q": "Qu’est-ce que le café instantané ?",
+    "choices": [
+      "Du café qui se dissout directement dans l’eau",
+      "Du café sans eau",
+      "Du café fait à partir de cacao",
+      "Du café fait à partir de feuilles de thé"
+    ],
+    "a": 0,
+    "ex": "Correct : le café instantané se dissout directement dans l’eau."
+  },
+  {
+    "q": "Qu’est-ce qu’un « shot » dans un café ?",
+    "choices": [
+      "Un smoothie",
+      "Une petite portion d’espresso",
+      "Un morceau de gâteau",
+      "Un verre d’eau"
+    ],
+    "a": 1,
+    "ex": "Correct : un « shot » est une petite portion d’espresso."
+  },
+  {
+    "q": "Pourquoi les cafés nettoient-ils régulièrement leurs moulins ?",
+    "choices": [
+      "Pour que les vieux résidus n’altèrent pas le goût",
+      "Pour que les grains deviennent plus gros",
+      "Pour augmenter la caféine",
+      "Pour rendre le café plus sucré"
+    ],
+    "a": 0,
+    "ex": "Correct : les résidus de café peuvent altérer le goût, d’où le nettoyage régulier."
+  },
+  {
+    "q": "Quelle option est (plutôt) sans caféine ?",
+    "choices": [
+      "Le café décaféiné",
+      "Le doppio",
+      "Le ristretto",
+      "Un shot d’espresso"
+    ],
+    "a": 0,
+    "ex": "Correct : le café décaféiné contient beaucoup moins de caféine."
+  }
+]

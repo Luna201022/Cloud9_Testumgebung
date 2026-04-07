@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cloud9 – Staff</title>
+  <link rel="icon" href="/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .wrap{max-width:1200px;margin:0 auto;padding:16px}
+    .topbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .card2{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:14px;box-shadow:0 0 0 1px rgba(0,0,0,.2) inset}
+    .row2{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .muted{opacity:.75}
+    .small2{font-size:12px;opacity:.85}
+    .input2{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:12px;padding:10px 12px;outline:none;min-width:220px}
+    .btn2{border-radius:12px;padding:10px 14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;cursor:pointer}
+    .btn2.primary{background:rgba(30,144,255,.35);border-color:rgba(30,144,255,.5)}
+    .btn2.danger{background:rgba(220,20,60,.22);border-color:rgba(220,20,60,.45)}
+    .btn2:disabled{opacity:.5;cursor:not-allowed}
+    .table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    .thead th{font-size:12px;opacity:.8;text-align:left;padding:6px 8px}
+    .tr{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08)}
+    .tr td{padding:10px 8px;vertical-align:top}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06)}
+    .pill.new{border-color:rgba(30,144,255,.5)}
+    .pill.done{border-color:rgba(46,204,113,.55)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-top:12px}
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+    .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:14px;padding:10px 14px;z-index:50}
+    a.btn2{display:inline-block;text-decoration:none}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card2 topbar">
+      <div class="row2" style="min-width:280px">
+        <img src="/logo.png" alt="Cloud9" style="width:46px;height:46px;border-radius:12px;background:#fff;padding:6px" />
+        <div>
+          <div style="font-size:20px;font-weight:900">Cloud9 Staff</div>
+          <div class="small2 muted">Bestellungen & Service live ansehen • „Gesendet“ = erledigt</div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div>
+          <div class="small2 muted">Admin PIN</div>
+          <input id="pinInput" class="input2" type="password" placeholder="PIN eingeben" autocomplete="current-password" />
+          <div class="small2 muted">PIN wird nicht angezeigt/auto-gefüllt. Nach „Speichern“ wird das Feld geleert.</div>
+        </div>
+        <button id="savePinBtn" class="btn2 primary" type="button">PIN speichern</button>
+        <button id="reloadBtn" class="btn2" type="button">Neu laden</button>
+      </div>
+
+      <div class="row2">
+        <label class="pill" style="cursor:pointer">
+          <input id="autoToggle" type="checkbox" checked style="accent-color:#3aa0ff" />
+          Auto-Refresh
+        </label>
+        <select id="autoEvery" class="input2" style="min-width:110px">
+          <option value="3">3s</option>
+          <option value="5" selected>5s</option>
+          <option value="10">10s</option>
+          <option value="15">15s</option>
+          <option value="30">30s</option>
+        </select>
+
+        <div>
+          <div class="small2 muted">Filter</div>
+          <select id="statusFilter" class="input2" style="min-width:150px">
+            <option value="NEW" selected>Nur NEW</option>
+            <option value="ALL">Alle</option>
+            <option value="DONE">Nur DONE</option>
+          </select>
+        </div>
+
+        <button id="soundBtn" class="btn2" type="button" title="Einmal klicken, damit Browser Sound erlaubt.">Sound aktivieren</button>
+        <span id="meta" class="small2 muted mono"></span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card2">
+        <div class="row2" style="justify-content:space-between">
+          <div style="font-size:18px;font-weight:900">Bestellungen & Service</div>
+          <div id="hint" class="small2 muted">Wenn nichts kommt: PIN speichern → Neu laden. Service: „Bedienung rufen“ / „Bezahlen“ erscheint ebenfalls hier.</div>
+        </div>
+        <div id="error" class="small2" style="margin-top:8px;color:#ffb3b3"></div>
+        <div style="margin-top:10px;overflow:auto">
+          <table class="table">
+            <thead class="thead">
+              <tr>
+                <th style="width:70px">Tisch</th>
+                <th>Bestellung / Service</th>
+                <th style="width:110px">Summe</th>
+                <th style="width:110px">Status</th>
+                <th style="width:170px">Aktion</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <div id="empty" class="small2 muted" style="padding:10px 4px;display:none">Keine Einträge.</div>
+        </div>
+      </div>
+
+      <div class="card2">
+        <div style="font-size:18px;font-weight:900">Links</div>
+        <div class="row2" style="margin-top:10px">
+          <a class="btn2" href="/" target="_blank" rel="noopener">Kunden-Frontend</a>
+          <a class="btn2" href="/admin" target="_blank" rel="noopener">Menü-Admin</a>
+        </div>
+        <div style="margin-top:14px" class="small2 muted">
+          <div style="font-weight:700;margin-bottom:6px">Kurz erklärt</div>
+          <ul style="margin:0;padding-left:18px;line-height:1.55">
+            <li><b>PIN:</b> wie in PowerShell (Authorization: Bearer …).</li>
+            <li><b>Gesendet:</b> setzt Status auf DONE (verschwindet bei „Nur NEW“).</li>
+            <li><b>Löschen:</b> entfernt die Bestellung.</li>
+            <li><b>Sound:</b> einmal klicken (Browser-Sperre), danach piept’s bei neuen Bestellungen.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" style="display:none"></div>
+
+  <script src="/staff.js?v=20260228_finalfix"></script>
+</body>
+</html>

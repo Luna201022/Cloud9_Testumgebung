@@ -1,0 +1,409 @@
+[
+  {
+    "q": "Di cosa è fatto il caffè?",
+    "choices": [
+      "Di foglie di tè",
+      "Di chicchi di caffè tostati",
+      "Di cacao in polvere",
+      "Di cereali"
+    ],
+    "a": 1,
+    "ex": "Corretto: il caffè è fatto con chicchi di caffè tostati."
+  },
+  {
+    "q": "Perché molte persone bevono caffè al mattino?",
+    "choices": [
+      "Perché aiuta a svegliarsi",
+      "Perché non contiene caffeina",
+      "Perché è sempre dolce",
+      "Perché si beve solo freddo"
+    ],
+    "a": 0,
+    "ex": "Corretto: molte persone bevono caffè al mattino perché aiuta a svegliarsi."
+  },
+  {
+    "q": "Quale varietà di chicchi è molto diffusa nel mondo?",
+    "choices": [
+      "Gelsomino",
+      "Rooibos",
+      "Arabica",
+      "Matcha"
+    ],
+    "a": 2,
+    "ex": "Corretto: l’Arabica è una delle varietà di caffè più diffuse al mondo."
+  },
+  {
+    "q": "Quale varietà di chicchi contiene spesso più caffeina?",
+    "choices": [
+      "Vaniglia",
+      "Arabica",
+      "Cacao",
+      "Robusta"
+    ],
+    "a": 3,
+    "ex": "Corretto: il Robusta contiene spesso più caffeina dell’Arabica."
+  },
+  {
+    "q": "Cos’è un espresso?",
+    "choices": [
+      "Una zuppa di noodle",
+      "Una salsa al formaggio",
+      "Un piccolo caffè concentrato",
+      "Un tipo di tè"
+    ],
+    "a": 2,
+    "ex": "Corretto: un espresso è un piccolo caffè concentrato."
+  },
+  {
+    "q": "Cos’è di solito un cappuccino?",
+    "choices": [
+      "Una bibita",
+      "Un tipo di torta",
+      "Espresso con latte e schiuma di latte",
+      "Una zuppa di noodle"
+    ],
+    "a": 2,
+    "ex": "Corretto: il cappuccino è composto da espresso con latte e schiuma di latte."
+  },
+  {
+    "q": "Cos’è un latte macchiato?",
+    "choices": [
+      "Latte con espresso a strati",
+      "Un tipo di tè",
+      "Una zuppa di noodle",
+      "Una città in Italia"
+    ],
+    "a": 0,
+    "ex": "Corretto: il latte macchiato è latte con espresso a strati."
+  },
+  {
+    "q": "Cos’è un americano?",
+    "choices": [
+      "Un cocktail analcolico",
+      "Espresso allungato con acqua calda",
+      "Una spezia",
+      "Una bibita"
+    ],
+    "a": 1,
+    "ex": "Corretto: un americano è un espresso allungato con acqua calda."
+  },
+  {
+    "q": "Cos’è il cold brew?",
+    "choices": [
+      "Caffè estratto a freddo per lungo tempo",
+      "Un tipo di tè",
+      "Una spezia",
+      "Un tipo di torta"
+    ],
+    "a": 0,
+    "ex": "Corretto: il cold brew è caffè estratto a freddo per lungo tempo."
+  },
+  {
+    "q": "Cosa significa \"decaffeinato\"?",
+    "choices": [
+      "Una bibita",
+      "Un tipo di torta",
+      "Un tipo di tè",
+      "Caffè con molta meno caffeina"
+    ],
+    "a": 3,
+    "ex": "Corretto: il caffè decaffeinato contiene molta meno caffeina."
+  },
+  {
+    "q": "Cosa significa \"single origin\"?",
+    "choices": [
+      "Una città in Italia",
+      "Chicchi provenienti da un’unica origine",
+      "Una bibita",
+      "Una zuppa di noodle"
+    ],
+    "a": 1,
+    "ex": "Corretto: \"single origin\" significa chicchi provenienti da un’unica origine."
+  },
+  {
+    "q": "Cosa significa \"blend\" nel caffè?",
+    "choices": [
+      "Un tipo di tè",
+      "Una miscela di chicchi di diverse origini",
+      "Una bibita",
+      "Una spezia"
+    ],
+    "a": 1,
+    "ex": "Corretto: un blend è una miscela di chicchi di diverse origini."
+  },
+  {
+    "q": "Cosa significa \"barista\"?",
+    "choices": [
+      "Una persona che prepara il caffè professionalmente",
+      "Una zuppa di noodle",
+      "Un tipo di torta",
+      "Un tipo di tè"
+    ],
+    "a": 0,
+    "ex": "Corretto: un barista è una persona che prepara il caffè professionalmente."
+  },
+  {
+    "q": "Cosa significa \"schiuma di latte\" nel caffè?",
+    "choices": [
+      "Un cocktail analcolico",
+      "Una bibita",
+      "Latte montato per una consistenza cremosa",
+      "Una spezia"
+    ],
+    "a": 2,
+    "ex": "Corretto: la schiuma di latte è latte montato che crea una consistenza cremosa."
+  },
+  {
+    "q": "Cosa significa \"grado di tostatura\"?",
+    "choices": [
+      "Una bibita",
+      "Quanto chiari o scuri sono tostati i chicchi",
+      "Una città in Italia",
+      "Una spezia"
+    ],
+    "a": 1,
+    "ex": "Corretto: il grado di tostatura indica quanto chiari o scuri sono tostati i chicchi."
+  },
+  {
+    "q": "Cos’è la ciliegia del caffè?",
+    "choices": [
+      "Un cocktail analcolico",
+      "Il frutto che contiene il chicco di caffè",
+      "Una zuppa di noodle",
+      "Un tipo di torta"
+    ],
+    "a": 1,
+    "ex": "Corretto: la ciliegia del caffè è il frutto che contiene il chicco di caffè."
+  },
+  {
+    "q": "Cos’è il caffè filtro?",
+    "choices": [
+      "Una zuppa di noodle",
+      "Un tipo di tè",
+      "Caffè che passa attraverso un filtro",
+      "Una bibita"
+    ],
+    "a": 2,
+    "ex": "Corretto: il caffè filtro è caffè che passa attraverso un filtro."
+  },
+  {
+    "q": "Cos’è una French press?",
+    "choices": [
+      "Una caffettiera in cui il caffè viene infuso e poi pressato",
+      "Un tipo di tè",
+      "Un cocktail analcolico",
+      "Una zuppa di noodle"
+    ],
+    "a": 0,
+    "ex": "Corretto: la French press è una caffettiera in cui il caffè viene infuso e poi pressato."
+  },
+  {
+    "q": "Cos’è un doppio?",
+    "choices": [
+      "Un doppio espresso",
+      "Un tipo di torta",
+      "Una bibita",
+      "Una salsa al formaggio"
+    ],
+    "a": 0,
+    "ex": "Corretto: un doppio è un doppio espresso."
+  },
+  {
+    "q": "Cos’è un flat white?",
+    "choices": [
+      "Espresso con latte fine e cremoso",
+      "Una spezia",
+      "Una salsa al formaggio",
+      "Un cocktail analcolico"
+    ],
+    "a": 0,
+    "ex": "Corretto: un flat white è un espresso con latte fine e cremoso."
+  },
+  {
+    "q": "Cos’è un mocha?",
+    "choices": [
+      "Una zuppa di noodle",
+      "Un tipo di torta",
+      "Caffè con cacao/cioccolato",
+      "Una città in Italia"
+    ],
+    "a": 2,
+    "ex": "Corretto: un mocha è caffè con cacao o cioccolato."
+  },
+  {
+    "q": "Cos’è un affogato?",
+    "choices": [
+      "Una salsa al formaggio",
+      "Un tipo di tè",
+      "Una zuppa di noodle",
+      "Espresso versato su gelato alla vaniglia"
+    ],
+    "a": 3,
+    "ex": "Corretto: un affogato è espresso versato su gelato alla vaniglia."
+  },
+  {
+    "q": "Perché l’acqua fresca è importante per il caffè?",
+    "choices": [
+      "Perché colora la tazza",
+      "Perché raddoppia la caffeina",
+      "Perché sostituisce lo zucchero",
+      "Perché influisce molto sul gusto"
+    ],
+    "a": 3,
+    "ex": "Corretto: l’acqua fresca influisce molto sul gusto del caffè."
+  },
+  {
+    "q": "Cosa può rendere amaro il caffè?",
+    "choices": [
+      "Troppo zucchero",
+      "Troppi cubetti di ghiaccio",
+      "Un’estrazione troppo lunga o troppo calda",
+      "Poche tazze"
+    ],
+    "a": 2,
+    "ex": "Corretto: un’estrazione troppo lunga o un’acqua troppo calda possono rendere amaro il caffè."
+  },
+  {
+    "q": "Cos’è un classico caffè freddo?",
+    "choices": [
+      "Tè con ghiaccio",
+      "Caffè caldo senza tazza",
+      "Caffè freddo con ghiaccio, spesso con latte o vaniglia",
+      "Acqua con cacao"
+    ],
+    "a": 2,
+    "ex": "Corretto: un classico caffè freddo è caffè freddo con ghiaccio, spesso con latte o vaniglia."
+  },
+  {
+    "q": "Perché molte persone usano un macinacaffè?",
+    "choices": [
+      "Per rendere il caffè decaffeinato",
+      "Per rendere il caffè automaticamente dolce",
+      "Per non aver bisogno di acqua",
+      "Per avere più aroma dal caffè macinato fresco"
+    ],
+    "a": 3,
+    "ex": "Corretto: il caffè macinato fresco ha più aroma."
+  },
+  {
+    "q": "Quale ingrediente rende il caffè al gusto di cioccolato?",
+    "choices": [
+      "Erba cipollina",
+      "Cacao o cioccolato",
+      "Salsa di soia",
+      "Senape"
+    ],
+    "a": 1,
+    "ex": "Corretto: cacao o cioccolato danno al caffè un gusto di cioccolato."
+  },
+  {
+    "q": "Cosa significa \"to go\" in un bar?",
+    "choices": [
+      "Congelare",
+      "Da asporto",
+      "Riscaldare",
+      "Scambiare"
+    ],
+    "a": 1,
+    "ex": "Corretto: \"to go\" significa da asporto."
+  },
+  {
+    "q": "Quale alternativa al latte è comune nei bar?",
+    "choices": [
+      "Sugo",
+      "Latte d’avena",
+      "Salsa di soia",
+      "Salsa di pesce"
+    ],
+    "a": 1,
+    "ex": "Corretto: il latte d’avena è un’alternativa comune al latte nei bar."
+  },
+  {
+    "q": "Quale base è la stessa per cappuccino e latte?",
+    "choices": [
+      "Acqua",
+      "Espresso",
+      "Tè",
+      "Cacao"
+    ],
+    "a": 1,
+    "ex": "Corretto: sia il cappuccino che il latte hanno come base l’espresso."
+  },
+  {
+    "q": "Cosa succede spesso con tostature più scure?",
+    "choices": [
+      "Il caffè diventa decaffeinato",
+      "Il caffè diventa più salato",
+      "Il caffè diventa sempre più fruttato",
+      "Il caffè ha un gusto più forte e tostato"
+    ],
+    "a": 3,
+    "ex": "Corretto: le tostature più scure hanno spesso un gusto più forte e tostato."
+  },
+  {
+    "q": "Cos’è un espresso macchiato?",
+    "choices": [
+      "Cold brew con panna",
+      "Latte con molto sciroppo",
+      "Caffè filtro con ghiaccio",
+      "Espresso con un po’ di latte o schiuma"
+    ],
+    "a": 3,
+    "ex": "Corretto: un espresso macchiato è un espresso con un po’ di latte o schiuma."
+  },
+  {
+    "q": "Quale affermazione è di solito vera?",
+    "choices": [
+      "Il caffè filtro non contiene mai caffeina",
+      "Il caffè deve essere sempre freddo",
+      "Il caffè è composto solo da zucchero",
+      "L’espresso è più concentrato del caffè filtro"
+    ],
+    "a": 3,
+    "ex": "Corretto: l’espresso è più concentrato del caffè filtro."
+  },
+  {
+    "q": "Cos’è il caffè istantaneo?",
+    "choices": [
+      "Caffè che si scioglie direttamente nell’acqua",
+      "Caffè senza acqua",
+      "Caffè fatto con cacao",
+      "Caffè fatto con foglie di tè"
+    ],
+    "a": 0,
+    "ex": "Corretto: il caffè istantaneo si scioglie direttamente nell’acqua."
+  },
+  {
+    "q": "Cos’è uno \"shot\" in un bar?",
+    "choices": [
+      "Un frullato",
+      "Una piccola porzione di espresso",
+      "Un pezzo di torta",
+      "Un bicchiere d’acqua"
+    ],
+    "a": 1,
+    "ex": "Corretto: uno \"shot\" in un bar è una piccola porzione di espresso."
+  },
+  {
+    "q": "Perché i bar puliscono regolarmente i macinacaffè?",
+    "choices": [
+      "Per evitare che i residui vecchi influenzino il gusto",
+      "Per far crescere i chicchi",
+      "Per aumentare la caffeina",
+      "Per rendere il caffè più dolce"
+    ],
+    "a": 0,
+    "ex": "Corretto: i residui di caffè possono influenzare il gusto, quindi i macinacaffè vengono puliti regolarmente."
+  },
+  {
+    "q": "Quale opzione è (più) priva di caffeina?",
+    "choices": [
+      "Caffè decaffeinato",
+      "Doppio",
+      "Ristretto",
+      "Shot di espresso"
+    ],
+    "a": 0,
+    "ex": "Corretto: il caffè decaffeinato contiene molta meno caffeina."
+  }
+]

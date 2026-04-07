@@ -1,0 +1,261 @@
+
+:root{
+  --bg:#07131a;
+  --panel:rgba(255,255,255,.06);
+  --panel2:rgba(255,255,255,.09);
+  --text:#eaf2f6;
+  --muted:rgba(234,242,246,.75);
+  --line:rgba(255,255,255,.10);
+  --accent:#4cc3ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:radial-gradient(1200px 600px at 10% 0%, rgba(76,195,255,.22), transparent 60%),
+             radial-gradient(900px 500px at 90% 20%, rgba(255,255,255,.08), transparent 60%),
+             var(--bg);
+  min-height:100vh;
+}
+
+/* reset */
+button{background:transparent;border:0;color:inherit;font:inherit;cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.6}
+
+
+.top{
+  max-width:1100px;
+  margin:22px auto 0;
+  padding:14px 18px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{width:64px;height:64px;object-fit:contain;border-radius:12px;background:#fff}
+.brandText{min-width:0}
+.brandName{font-weight:800;font-size:20px;line-height:1.1}
+.brandSub{font-size:12px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lang{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.chip{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  padding:7px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:12px;
+}
+.chip.active{border-color:rgba(76,195,255,.7); box-shadow:0 0 0 3px rgba(76,195,255,.18) inset}
+.wrap{max-width:1100px;margin:16px auto 0;padding:0 10px}
+.tabs{
+  display:flex;gap:10px;flex-wrap:wrap;
+  padding:10px 6px;
+}
+.tab{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:800;
+}
+.tab.active{border-color:rgba(76,195,255,.7)}
+.card{
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:18px;
+  padding:16px;
+}
+.grid2{display:grid;grid-template-columns:1.4fr .9fr;gap:14px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.input, select{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  outline:none;
+}
+.input{flex:1;min-width:220px}
+.btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:800;
+}
+.btn.primary{border-color:rgba(76,195,255,.65); background:rgba(76,195,255,.14)}
+.btn.danger{border-color:rgba(255,110,110,.55); background:rgba(255,110,110,.10)}
+.h{font-size:18px;font-weight:900;margin:0 0 10px}
+.small{color:var(--muted);font-size:12px}
+.list{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.item{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  border-radius:14px;
+  padding:12px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.itemTitle{font-weight:900}
+.itemDesc{color:var(--muted);font-size:12px;margin-top:4px}
+.price{font-weight:900;white-space:nowrap}
+.badge{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+.cartLine{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+.foot{max-width:1100px;margin:20px auto 30px;padding:0 14px;color:var(--muted);font-size:12px}
+.hidden{display:none !important}
+.modalBackdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;padding:16px;
+}
+.modal{
+  width:min(720px, 96vw);
+  background:#0b1a22;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+.modalHead{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+.modalTitle{font-weight:900}
+.iconBtn{background:transparent;border:0;color:var(--text);cursor:pointer;font-size:18px}
+.modalBody{padding:14px;max-height:70vh;overflow:auto}
+.modalFoot{padding:12px 14px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.chapter{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:14px;padding:12px;margin:10px 0}
+.chapter h3{margin:0 0 6px;font-size:15px}
+.chapter p{margin:0 0 10px;color:var(--muted);line-height:1.5}
+
+/* Home: Hauptfunktionen vs Extras */
+.actionGrid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}
+.actionCard{padding:18px}
+.actionTitle{font-size:18px;font-weight:900;margin:0 0 4px}
+.actionSub{font-size:13px;color:var(--muted);margin:0 0 14px}
+.bigBtnGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bigCardBtn{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:16px;padding:14px;text-align:left;cursor:pointer;transition:transform .08s ease, background .2s ease}
+.bigCardBtn:hover{background:rgba(255,255,255,.05)}
+.bigCardBtn:active{transform:translateY(1px)}
+.bigIcon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(44,199,255,.12);border:1px solid rgba(44,199,255,.25);font-size:18px;margin-bottom:10px}
+.bigLabel{font-weight:900}
+.bigHint{font-size:12px;color:var(--muted);margin-top:3px}
+.extrasList{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.extrasBtn{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:14px;padding:12px;text-align:left;cursor:pointer}
+.extrasBtn:hover{background:rgba(255,255,255,.05)}
+.pill{display:none !important;}
+
+@media (max-width: 860px){
+  .actionGrid{grid-template-columns:1fr}
+  .bigBtnGrid{grid-template-columns:1fr}
+}
+
+
+/* tiles */
+.tile{display:flex;flex-direction:column;gap:6px;justify-content:center;align-items:flex-start;
+  padding:14px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.tile:hover{background:rgba(255,255,255,.06)}
+.tile .tileTitle{font-weight:700}
+.tile .tileSub{opacity:.85;font-size:13px;line-height:1.2}
+.extrasTile{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.extrasTile:hover{background:rgba(255,255,255,.06)}
+.badge{min-width:28px;height:22px;padding:0 8px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);font-size:12px;opacity:.9}
+
+.homeCard{display:flex;flex-direction:column;gap:6px;justify-content:center;align-items:flex-start;
+  padding:14px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-align:left;width:100%}
+.homeCard:hover{background:rgba(255,255,255,.06)}
+.homeCard .title{font-weight:700}
+.homeCard .sub{opacity:.85;font-size:13px;line-height:1.2}
+
+/* Hide any counters/badges (e.g., the '20' on Kaffee-Quiz) */
+.badge, .count, .counter, .pill, .quiz-count { 
+  display: none !important; 
+}
+
+/* Make extras items look like the main action cards */
+.extras .item, .extras .card, .extras .tile, .extras .btn, .extras a, .extras button {
+  display: block;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  cursor: pointer;
+  text-decoration: none;
+}
+.extras .item:hover, .extras .card:hover, .extras .tile:hover, .extras .btn:hover, .extras a:hover, .extras button:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Ensure Extras cards have visible borders like main action cards */
+.extras-card {
+  display: block;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+.extras-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.extras-card:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Ensure language chips visible */
+.chip{display:inline-flex !important;}
+
+/* Category grouping in order list */
+.catBlock { margin-top: 12px; }
+.catTitle { font-weight: 900; margin: 10px 0 6px; opacity: 0.95; }
+
+/* Warm/Kalt options */
+.optRow { display:flex; gap:8px; margin-top:8px; }
+.optBtn { padding:6px 10px; border-radius:10px; border:1px solid rgba(255,255,255,.2); background:transparent; color:#fff; cursor:pointer; }
+.optBtn.active { border-color:#4aa3ff; box-shadow:0 0 0 1px rgba(74,163,255,.6) inset; }
+.priceWrap { display:flex; align-items:center; justify-content:flex-end; }
+
+.item { display:flex; gap:12px; }
+.itemLeft { flex:1; }
+.itemRight { min-width:120px; display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
+.underPrice { display:flex; gap:6px; justify-content:flex-end; }
+.optBtn { padding:6px 10px; border-radius:10px; border:1px solid rgba(255,255,255,.25); background:transparent; color:#fff; cursor:pointer; }
+.optBtn.active { border-color:#4aa3ff; box-shadow:0 0 0 2px rgba(74,163,255,.9) inset; }
+
+/* Active selection in modal */
+.btn.active { border-color:#4aa3ff; box-shadow:0 0 0 2px rgba(74,163,255,.9) inset; }
+
+/* Order notes */
+.order-note { margin: 10px 0; }
+.order-note label { display:block; margin-bottom:6px; opacity:.9; }
+#order-note {
+  width: 100%;
+  resize: vertical;
+  min-height: 56px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.2);
+  color: #fff;
+}
+#order-note::placeholder { color: rgba(255,255,255,.5); }
+
+
+/* quiz progress (1/20) next to title */
+.quizProgress{min-width:28px;height:22px;padding:0 8px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);font-size:12px;opacity:.9;margin-left:8px}
