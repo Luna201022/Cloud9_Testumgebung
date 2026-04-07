@@ -1,7 +1,8 @@
 // Cloud9 Orders API (D1)
 // Endpoint: POST /api/order
-// Expects JSON: { tableId:number, items:[{id,name?,qty,options?}], note?:string, total?:number }
+// Expects JSON: { tableId:number, items:[{id,name?,qty,options?,unitPrice?}], note?:string, total?:number }
 // Persists order into D1 table "orders"
+// Extended: every item is stored with "done: 0" so staff can partially mark dishes as erledigt.
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -23,11 +24,27 @@ export async function onRequest(context) {
   const tableId = toInt(body.tableId, 0);
   const items = Array.isArray(body.items) ? body.items : [];
   const note = (body.note ?? "").toString().slice(0, 1000);
-  const total = typeof body.total === "number" ? body.total : 0;
 
   if (!tableId || items.length === 0) {
     return json({ ok: false, error: "missing_fields" }, 400);
   }
+
+  const safeItems = items.map((it) => {
+    const qty = Math.max(1, toInt(it?.qty ?? it?.quantity, 1));
+    const unitPrice = Number(it?.unitPrice) || 0;
+    return {
+      id: (it?.id ?? "").toString().slice(0, 80),
+      name: (it?.name ?? "").toString().slice(0, 120),
+      qty,
+      done: 0,
+      options: it?.options && typeof it.options === "object" ? it.options : {},
+      unitPrice
+    };
+  });
+
+  const total = typeof body.total === "number"
+    ? body.total
+    : safeItems.reduce((sum, it) => sum + (Number(it.unitPrice) || 0) * qtyOf(it), 0);
 
   const id = crypto.randomUUID();
   const nowMs = Date.now();
@@ -35,14 +52,6 @@ export async function onRequest(context) {
   const createdAt = new Date(nowMs).toISOString();
   const updatedAt = nowMs;
   const status = "NEW";
-
-  const safeItems = items.map((it) => ({
-    id: (it?.id ?? "").toString().slice(0, 80),
-    name: (it?.name ?? "").toString().slice(0, 120),
-    qty: toInt(it?.qty, 1),
-    options: it?.options && typeof it.options === "object" ? it.options : {},
-    unitPrice: typeof it?.unitPrice === "number" ? it.unitPrice : 0,
-  }));
 
   try {
     await env.DB.prepare(
@@ -67,6 +76,11 @@ export async function onRequest(context) {
   }
 }
 
+function qtyOf(item) {
+  const n = Number(item?.qty);
+  return Number.isFinite(n) ? Math.trunc(n) : 0;
+}
+
 function toInt(v, def) {
   const n = Number(v);
   return Number.isFinite(n) ? Math.trunc(n) : def;
@@ -77,7 +91,7 @@ function json(obj, status = 200) {
     status,
     headers: {
       "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store",
-    },
+      "cache-control": "no-store"
+    }
   });
 }
