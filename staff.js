@@ -35,8 +35,22 @@
     selectedTableId: null,
     selection: {},
     orders: [],
-    requests: []
+    requests: [],
+    manualDraft: {}
   };
+
+
+  function getManualDraft(tableId) {
+    const key = String(tableId || "");
+    if (!state.manualDraft[key]) {
+      state.manualDraft[key] = { catId: "", itemId: "", qty: 1, unitPrice: 0 };
+    }
+    return state.manualDraft[key];
+  }
+
+  function resetManualDraft(tableId) {
+    state.manualDraft[String(tableId || "")] = { catId: "", itemId: "", qty: 1, unitPrice: 0 };
+  }
 
   function safe(str) {
     return String(str ?? "").replace(/[&<>"]/g, (c) => ({
@@ -570,26 +584,72 @@
     const addBtn = document.getElementById('c9-manual-add-btn');
     if (!catSel || !itemSel || !qtyInp || !priceInp || !addBtn) return;
 
+    const draft = getManualDraft(tableId);
     const cats = Array.isArray(state.menu?.categories) ? state.menu.categories : [];
     catSel.innerHTML = cats.map((c) => `<option value="${safe(c.id)}">${safe(c.title || c.id)}</option>`).join('');
 
-    const fillItems = () => {
+    if (!draft.catId && cats[0]) draft.catId = String(cats[0].id);
+    if (draft.catId) catSel.value = draft.catId;
+
+    const fillItems = (preserveSelection) => {
       const cat = cats.find((c) => String(c.id) === String(catSel.value));
       const items = Array.isArray(cat?.items) ? cat.items : [];
+      let wantedItemId = preserveSelection ? String(draft.itemId || '') : '';
+      if (!wantedItemId || !items.some((it) => String(it.id) === wantedItemId)) {
+        wantedItemId = items[0] ? String(items[0].id) : '';
+      }
+
       itemSel.innerHTML = items.map((it) => `<option value="${safe(it.id)}">${safe(it.name || it.id)}</option>`).join('');
-      const first = items[0];
-      if (first) priceInp.value = String(Number(first.price || 0).toFixed(2));
+      if (wantedItemId) itemSel.value = wantedItemId;
+
+      draft.catId = String(catSel.value || '');
+      draft.itemId = String(itemSel.value || '');
+      draft.qty = Math.max(1, Math.trunc(Number(draft.qty) || 1));
+
+      const currentItem = items.find((it) => String(it.id) === String(itemSel.value));
+      if (currentItem) {
+        const autoPrice = Number(currentItem.price || 0);
+        if (!preserveSelection || !Number.isFinite(Number(draft.unitPrice)) || Number(draft.unitPrice) <= 0) {
+          draft.unitPrice = autoPrice;
+        }
+      }
+
+      qtyInp.value = String(draft.qty);
+      priceInp.value = String(Number(draft.unitPrice || 0).toFixed(2));
     };
 
-    const syncPrice = () => {
+    const syncPrice = (keepManualPrice) => {
       const cat = cats.find((c) => String(c.id) === String(catSel.value));
       const it = (Array.isArray(cat?.items) ? cat.items : []).find((x) => String(x.id) === String(itemSel.value));
-      if (it) priceInp.value = String(Number(it.price || 0).toFixed(2));
+      draft.catId = String(catSel.value || '');
+      draft.itemId = String(itemSel.value || '');
+      if (it && !keepManualPrice) {
+        draft.unitPrice = Number(it.price || 0);
+      }
+      qtyInp.value = String(Math.max(1, Math.trunc(Number(draft.qty) || 1)));
+      priceInp.value = String(Number(draft.unitPrice || 0).toFixed(2));
     };
 
-    catSel.addEventListener('change', fillItems);
-    itemSel.addEventListener('change', syncPrice);
-    fillItems();
+    catSel.addEventListener('change', () => {
+      draft.catId = String(catSel.value || '');
+      draft.itemId = '';
+      fillItems(false);
+    });
+
+    itemSel.addEventListener('change', () => {
+      draft.itemId = String(itemSel.value || '');
+      syncPrice(false);
+    });
+
+    qtyInp.addEventListener('input', () => {
+      draft.qty = Math.max(1, Math.trunc(Number(qtyInp.value) || 1));
+    });
+
+    priceInp.addEventListener('input', () => {
+      draft.unitPrice = Math.max(0, Number(priceInp.value) || 0);
+    });
+
+    fillItems(true);
 
     addBtn.addEventListener('click', async () => {
       try {
@@ -601,9 +661,14 @@
         }
         const qty = Math.max(1, Math.trunc(Number(qtyInp.value) || 1));
         const unitPrice = Math.max(0, Number(priceInp.value) || 0);
+        draft.catId = String(catSel.value || '');
+        draft.itemId = String(itemSel.value || '');
+        draft.qty = qty;
+        draft.unitPrice = unitPrice;
+
         await createManualOrder(tableId, it, qty, unitPrice);
         toast('Hinzugebucht');
-        qtyInp.value = '1';
+        resetManualDraft(tableId);
         await refreshOnce(true);
       } catch (e) {
         errorEl.textContent = String(e?.message || e);
