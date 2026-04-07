@@ -16,6 +16,7 @@
   const API_REQUESTS = "/api/requests";
   const API_ACT_ORDER = "/api/staff/order";
   const API_ACT_REQ = "/api/staff/request";
+  const API_ORDER = "/api/order";
 
   const LS_PIN = "cloud9_admin_pin";
   const LS_SOUND = "cloud9_staff_sound";
@@ -402,16 +403,20 @@
         ? "opacity:.58;background:rgba(255,255,255,.03)"
         : "";
       return `
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) 120px 120px 150px;gap:10px;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;margin:0 0 8px 0;${rowStyle}">
-          <div>
-            <div style="font-weight:800">${safe(item.name)}${item.optionText ? ` <span class="small2 muted" style="font-weight:500">(${safe(item.optionText)})</span>` : ""}</div>
-            <div class="small2 muted">
+        <div style="display:flex;gap:12px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px;margin:0 0 8px 0;${rowStyle}">
+          <div style="min-width:180px;flex:1 1 220px">
+            <div style="font-weight:800;line-height:1.25">${safe(item.name)}${item.optionText ? ` <span class="small2 muted" style="font-weight:500">(${safe(item.optionText)})</span>` : ""}</div>
+            <div class="small2 muted" style="margin-top:6px;line-height:1.35">
               Offen: ${safe(item.openQty)} · Erledigt: ${safe(item.doneQty)} · Gesamt: ${safe(item.totalQty)}
             </div>
           </div>
-          <div class="mono" style="font-weight:700">${money(item.unitPrice)}</div>
-          <div class="mono" style="font-weight:700">${money(item.openQty * item.unitPrice)}</div>
-          <div style="display:flex;gap:6px;align-items:center;justify-content:flex-end">
+          <div style="display:grid;grid-template-columns:auto auto;column-gap:10px;row-gap:4px;align-items:center;min-width:150px;flex:0 0 auto">
+            <div class="small2 muted">Einzel</div>
+            <div class="mono" style="font-weight:700;text-align:right">${money(item.unitPrice)}</div>
+            <div class="small2 muted">Offen</div>
+            <div class="mono" style="font-weight:700;text-align:right">${money(item.openQty * item.unitPrice)}</div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;justify-content:flex-end;flex:0 0 auto">
             <button type="button" class="btn2" data-minus-group="${safe(item.groupKey)}" ${canSelect ? "" : "disabled"}>-</button>
             <input
               type="number"
@@ -443,6 +448,7 @@
       <div>${rows || `<div class="muted small2">Keine Positionen gefunden.</div>`}</div>
       <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px">
         <button type="button" class="btn2" data-table-select-all="${safe(table.tableId)}">Alles auswählen</button>
+        <button type="button" class="btn2" data-table-manual-add="${safe(table.tableId)}">Manuell hinzufügen</button>
         <button type="button" class="btn2 primary" data-table-apply="${safe(table.tableId)}">Löschen</button>
         <button type="button" class="btn2 danger" data-table-clear="${safe(table.tableId)}">Tisch leeren</button>
       </div>
@@ -472,6 +478,7 @@
     const minusBtn = ev.target.closest("button[data-minus-group]");
     const plusBtn = ev.target.closest("button[data-plus-group]");
     const selectAllBtn = ev.target.closest("button[data-table-select-all]");
+    const manualAddBtn = ev.target.closest("button[data-table-manual-add]");
     const applyBtn = ev.target.closest("button[data-table-apply]");
     const clearBtn = ev.target.closest("button[data-table-clear]");
 
@@ -492,6 +499,11 @@
     if (selectAllBtn) {
       selectAllOpenForTable(table);
       renderSelectedTableDetail();
+      return;
+    }
+
+    if (manualAddBtn) {
+      await openManualAddPrompt(table.tableId);
       return;
     }
 
@@ -575,6 +587,26 @@
     await refreshOnce(true);
   }
 
+  async function openManualAddPrompt(tableId) {
+    const name = (window.prompt(`Was soll zu Tisch ${tableId} hinzugebucht werden?`, "") || "").trim();
+    if (!name) return;
+
+    const priceRaw = (window.prompt(`Einzelpreis für „${name}“ in Euro`, "0") || "").replace(',', '.').trim();
+    const unitPrice = Number(priceRaw);
+    if (!Number.isFinite(unitPrice) || unitPrice < 0) {
+      errorEl.textContent = "Ungültiger Preis";
+      return;
+    }
+
+    const qtyRaw = (window.prompt(`Menge für „${name}“`, "1") || "1").trim();
+    const qty = Math.max(1, toInt(qtyRaw, 1));
+
+    errorEl.textContent = "";
+    await createManualOrder(tableId, name, unitPrice, qty);
+    toast(`Zu Tisch ${tableId} hinzugebucht`);
+    await refreshOnce(true);
+  }
+
   if (pinInput) pinInput.value = "";
 
   function syncSoundBtn() {
@@ -635,6 +667,25 @@
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload)
     }, true);
+  }
+
+  async function createManualOrder(tableId, name, unitPrice, qty) {
+    return fetchJson(API_ORDER, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        tableId,
+        items: [{
+          id: `manual:${String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'artikel'}`,
+          name,
+          qty,
+          unitPrice,
+          options: { quelle: "Theke" }
+        }],
+        note: "Manuell an Theke hinzugefügt",
+        total: Math.round((qty * unitPrice) * 100) / 100
+      })
+    }, false);
   }
 
   rowsEl?.addEventListener("click", async (ev) => {
