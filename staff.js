@@ -199,13 +199,26 @@
     return data;
   }
 
+  function findLinksCardContainer() {
+    const wanted = ["kunden-frontend", "menü-admin", "menu-admin"];
+    const nodes = Array.from(document.querySelectorAll("a,button"));
+    for (const node of nodes) {
+      const txt = String(node.textContent || "").trim().toLowerCase();
+      if (!wanted.includes(txt)) continue;
+      const card = node.closest(".card, .panel, .box, section, article");
+      if (card) return card;
+      if (node.parentElement) return node.parentElement;
+    }
+    return null;
+  }
+
   function ensureTableTools() {
     if (tableTools) return;
     if (!rowsEl || !rowsEl.parentNode) return;
 
     tableTools = document.createElement("section");
     tableTools.id = "tableTools";
-    tableTools.style.margin = "0 0 14px 0";
+    tableTools.style.margin = "16px 0 0 0";
     tableTools.innerHTML = `
       <div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)">
         <div style="font-weight:800;font-size:16px;margin:0 0 10px 0">Tische mit offenen Bestellungen</div>
@@ -215,8 +228,13 @@
       </div>
     `;
 
-    const anchor = rowsEl.closest("table") || rowsEl.parentNode;
-    anchor.parentNode.insertBefore(tableTools, anchor);
+    const linksCard = findLinksCardContainer();
+    if (linksCard) {
+      linksCard.appendChild(tableTools);
+    } else {
+      const anchor = rowsEl.closest("table") || rowsEl.parentNode;
+      anchor.parentNode.insertBefore(tableTools, anchor);
+    }
 
     tableTabsEl = tableTools.querySelector("#tableTabs");
     tableDetailEl = tableTools.querySelector("#tableDetail");
@@ -424,6 +442,7 @@
       </div>
       <div>${rows || `<div class="muted small2">Keine Positionen gefunden.</div>`}</div>
       <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px">
+        <button type="button" class="btn2" data-table-select-all="${safe(table.tableId)}">Alles auswählen</button>
         <button type="button" class="btn2 primary" data-table-apply="${safe(table.tableId)}">Löschen</button>
         <button type="button" class="btn2 danger" data-table-clear="${safe(table.tableId)}">Tisch leeren</button>
       </div>
@@ -452,6 +471,7 @@
   async function onTableDetailClick(ev) {
     const minusBtn = ev.target.closest("button[data-minus-group]");
     const plusBtn = ev.target.closest("button[data-plus-group]");
+    const selectAllBtn = ev.target.closest("button[data-table-select-all]");
     const applyBtn = ev.target.closest("button[data-table-apply]");
     const clearBtn = ev.target.closest("button[data-table-clear]");
 
@@ -465,6 +485,12 @@
       const current = selectedQty(table.tableId, groupKey);
       const next = current + (plusBtn ? 1 : -1);
       setSelectedQty(table.tableId, groupKey, next, item.openQty);
+      renderSelectedTableDetail();
+      return;
+    }
+
+    if (selectAllBtn) {
+      selectAllOpenForTable(table);
       renderSelectedTableDetail();
       return;
     }
@@ -505,6 +531,14 @@
 
   function clearSelectionsForTable(tableId) {
     delete state.tableSelections[String(tableId || "")];
+  }
+
+  function selectAllOpenForTable(table) {
+    const map = getSelectedMap(table.tableId);
+    Object.keys(map).forEach((k) => delete map[k]);
+    for (const item of (table.items || [])) {
+      if (item.openQty > 0) map[item.groupKey] = item.openQty;
+    }
   }
 
   async function applySelectedDone(table) {
