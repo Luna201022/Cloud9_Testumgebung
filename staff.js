@@ -326,9 +326,34 @@
     document.head.appendChild(style);
   }
 
+  function findLinksCard() {
+    const headings = [...document.querySelectorAll('h1,h2,h3,h4,h5,h6,div,strong,span')];
+    const linkHead = headings.find((x) => /^\s*Links\s*$/i.test((x.textContent || '').trim()));
+    if (linkHead) {
+      const card = linkHead.closest('.card, .panel, .box, section');
+      if (card) return card;
+    }
+    const linksBtn = [...document.querySelectorAll('a,button')].find((x) => /kunden-frontend/i.test((x.textContent || '').trim()));
+    if (linksBtn) {
+      const card = linksBtn.closest('.card, .panel, .box, section');
+      if (card) return card;
+    }
+    return null;
+  }
+
   function buildLayout() {
     injectStyles();
-    if (document.getElementById('c9-enhanced-wrap')) return;
+    if (document.getElementById('c9-table-card')) return;
+
+    const linksCard = findLinksCard();
+    if (linksCard) {
+      const tableCard = document.createElement('div');
+      tableCard.className = 'c9-card';
+      tableCard.id = 'c9-table-card';
+      tableCard.innerHTML = '<div id="c9-table-root"></div>';
+      linksCard.insertAdjacentElement('afterend', tableCard);
+      return;
+    }
 
     const rowsContainer = rowsEl?.closest('table')?.parentElement || rowsEl?.parentElement || null;
     if (!rowsContainer) return;
@@ -348,12 +373,6 @@
     wrap.appendChild(left);
     wrap.appendChild(right);
     left.appendChild(liveSection);
-
-    const linksBtn = [...document.querySelectorAll('a,button')].find((x) => /kunden-frontend/i.test((x.textContent || '').trim()));
-    const linksCard = linksBtn ? (linksBtn.closest('.card, .panel, .box, section, div')) : null;
-    if (linksCard && linksCard !== liveSection) {
-      right.appendChild(linksCard);
-    }
 
     const tableCard = document.createElement('div');
     tableCard.className = 'c9-card';
