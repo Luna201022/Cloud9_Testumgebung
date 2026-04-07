@@ -306,6 +306,9 @@
       .c9-inlineform .full{grid-column:1/-1}
       .c9-items{display:flex;flex-direction:column;gap:10px;margin-top:12px}
       .c9-item{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;display:grid;grid-template-columns:minmax(0,1.8fr) 100px 110px 130px;gap:12px;align-items:center}
+      .c9-item.c9-partial{background:rgba(255,255,255,.04)}
+      .c9-item.c9-done{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.72)}
+      .c9-item.c9-done .c9-name,.c9-item.c9-done .c9-value{color:rgba(255,255,255,.82)}
       .c9-name{font-weight:900;font-size:16px;line-height:1.25}
       .c9-meta{font-size:13px;opacity:.86;margin-top:4px;line-height:1.25}
       .c9-col{display:flex;flex-direction:column;gap:4px;align-items:flex-end;justify-content:center}
@@ -325,28 +328,38 @@
 
   function buildLayout() {
     injectStyles();
-
-    let tableCard = document.getElementById('c9-table-card');
-    if (tableCard) return;
-
-    const linksBtn = [...document.querySelectorAll('a,button')].find((x) => /kunden-frontend/i.test((x.textContent || '').trim()));
-    const linksCard = linksBtn ? (linksBtn.closest('.card, .panel, .box, section, div')) : null;
-
-    tableCard = document.createElement('div');
-    tableCard.className = 'c9-card';
-    tableCard.id = 'c9-table-card';
-    tableCard.innerHTML = '<div id="c9-table-root"></div>';
-
-    if (linksCard && linksCard.parentNode) {
-      linksCard.insertAdjacentElement('afterend', tableCard);
-      return;
-    }
+    if (document.getElementById('c9-enhanced-wrap')) return;
 
     const rowsContainer = rowsEl?.closest('table')?.parentElement || rowsEl?.parentElement || null;
     if (!rowsContainer) return;
     const liveSection = rowsContainer.closest('.card, .panel, .box, section, div') || rowsContainer.parentElement;
-    if (!liveSection || !liveSection.parentNode) return;
-    liveSection.insertAdjacentElement('afterend', tableCard);
+    if (!liveSection) return;
+
+    const wrap = document.createElement('div');
+    wrap.id = 'c9-enhanced-wrap';
+    wrap.className = 'c9-flex';
+
+    const left = document.createElement('div');
+    left.className = 'c9-left';
+    const right = document.createElement('div');
+    right.className = 'c9-right';
+
+    liveSection.parentNode.insertBefore(wrap, liveSection);
+    wrap.appendChild(left);
+    wrap.appendChild(right);
+    left.appendChild(liveSection);
+
+    const linksBtn = [...document.querySelectorAll('a,button')].find((x) => /kunden-frontend/i.test((x.textContent || '').trim()));
+    const linksCard = linksBtn ? (linksBtn.closest('.card, .panel, .box, section, div')) : null;
+    if (linksCard && linksCard !== liveSection) {
+      right.appendChild(linksCard);
+    }
+
+    const tableCard = document.createElement('div');
+    tableCard.className = 'c9-card';
+    tableCard.id = 'c9-table-card';
+    tableCard.innerHTML = '<div id="c9-table-root"></div>';
+    right.appendChild(tableCard);
   }
 
   function renderLiveList(list) {
