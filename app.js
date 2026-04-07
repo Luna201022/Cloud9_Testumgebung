@@ -867,7 +867,7 @@ host.querySelectorAll("[data-add]").forEach(btn => {
         id: l.id,
         name: l.name,
         qty: 1,
-        price: l.price,
+        unitPrice: l.price,
         options: l.options || {}
       }));
       const note = (state.orderNote || "").trim();
