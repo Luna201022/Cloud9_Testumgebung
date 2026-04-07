@@ -351,7 +351,7 @@
       tableCard.className = 'c9-card';
       tableCard.id = 'c9-table-card';
       tableCard.innerHTML = '<div id="c9-table-root"></div>';
-      linksCard.insertAdjacentElement('afterend', tableCard);
+      linksCard.appendChild(tableCard);
       return;
     }
 
