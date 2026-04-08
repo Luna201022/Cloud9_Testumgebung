@@ -343,15 +343,30 @@
 
   function buildLayout() {
     injectStyles();
-    if (document.getElementById('c9-table-card')) return;
 
-    const linksCard = findLinksCard();
-    if (linksCard) {
-      const tableCard = document.createElement('div');
-      tableCard.className = 'c9-card';
-      tableCard.id = 'c9-table-card';
-      tableCard.innerHTML = '<div id="c9-table-root"></div>';
-      linksCard.appendChild(tableCard);
+    const old = document.getElementById('c9-table-card');
+    if (old && !old.closest('.grid > .card2:nth-child(2), .grid > *:nth-child(2)')) {
+      try { old.remove(); } catch {}
+    }
+    if (document.getElementById('c9-table-root')) return;
+
+    const rightCard =
+      document.querySelector('.grid > .card2:nth-child(2)') ||
+      document.querySelector('.grid > *:nth-child(2)') ||
+      findLinksCard();
+
+    if (rightCard) {
+      let host = document.getElementById('c9-table-card');
+      if (!host) {
+        host = document.createElement('div');
+        host.className = 'c9-card';
+        host.id = 'c9-table-card';
+        host.style.marginTop = '14px';
+        rightCard.appendChild(host);
+      }
+      if (!document.getElementById('c9-table-root')) {
+        host.innerHTML = '<div id="c9-table-root"></div>';
+      }
       return;
     }
 
