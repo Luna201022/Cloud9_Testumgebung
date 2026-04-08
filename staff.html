@@ -39,7 +39,7 @@
         <img src="/logo.png" alt="Cloud9" style="width:46px;height:46px;border-radius:12px;background:#fff;padding:6px" />
         <div>
           <div style="font-size:20px;font-weight:900">Cloud9 Staff</div>
-          <div class="small2 muted">Bestellungen & Service live ansehen • „Gesendet“ = erledigt</div>
+          <div class="small2 muted">Bestellungen & Service live ansehen • „Erledigt“ = erledigt</div>
         </div>
       </div>
 
@@ -126,5 +126,89 @@
   <div id="toast" class="toast" style="display:none"></div>
 
   <script src="/staff.js?v=20260228_finalfix"></script>
+
+  <style>
+    /* Live-Liste: Tisch öffnen / Tisch leeren ausblenden */
+    .c9-live-row-actions .btn2[data-open-table],
+    .c9-live-row-actions .btn2[data-clear-table] {
+      display: none !important;
+    }
+  </style>
+  <script>
+  (function () {
+    function euroToNumber(txt) {
+      const s = String(txt || '').replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.');
+      const n = Number(s);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function applyStaffUiPatch() {
+      // Buttons in Live-Liste umbenennen/ausblenden
+      document.querySelectorAll('.c9-live-row-actions button').forEach((btn) => {
+        const t = (btn.textContent || '').trim();
+        if (t === 'Gesendet') btn.textContent = 'Erledigt';
+        if (t === 'Tisch öffnen' || t === 'Tisch leeren') {
+          btn.style.display = 'none';
+        }
+      });
+
+      // Rechter Block umbenennen
+      document.querySelectorAll('.c9-title').forEach((el) => {
+        const t = (el.textContent || '').trim();
+        if (t === 'Tische mit offenen Bestellungen') {
+          el.textContent = 'Tische mit offenen Beträgen';
+        }
+      });
+
+      document.querySelectorAll('.c9-totals').forEach((totals) => {
+        // Offenen Betrag aus den sichtbaren Positionen neu berechnen:
+        // offen = angezeigte "Offen"-Menge * Einzelpreis
+        let openTotal = 0;
+        const panel = totals.parentElement;
+        panel.querySelectorAll('.c9-item').forEach((item) => {
+          const meta = item.querySelector('.c9-meta')?.textContent || '';
+          const m = meta.match(/Offen:\s*(\d+)/i);
+          const openQty = m ? parseInt(m[1], 10) : 0;
+
+          let unitPrice = 0;
+          item.querySelectorAll('.c9-col').forEach((col) => {
+            const label = (col.querySelector('.c9-label')?.textContent || '').trim();
+            if (label === 'Einzelpreis') {
+              unitPrice = euroToNumber(col.querySelector('.c9-value')?.textContent || '0');
+            }
+          });
+
+          openTotal += openQty * unitPrice;
+
+          // komplett erledigte/bezahlte Positionen optisch hellgrau
+          if (openQty === 0) {
+            item.style.background = 'rgba(255,255,255,.09)';
+            item.style.borderColor = 'rgba(255,255,255,.16)';
+            item.style.color = 'rgba(255,255,255,.72)';
+          }
+        });
+
+        // Ersten Betrag in .c9-totals überschreiben
+        const html = totals.innerHTML;
+        const replacement = 'Offener Betrag: <b>' + openTotal.toFixed(2).replace('.', ',') + ' €</b>';
+        totals.innerHTML = html.replace(/Offen gesamt:\s*<b>.*?<\/b>|Offener Betrag:\s*<b>.*?<\/b>/i, replacement);
+      });
+    }
+
+    function initPatch() {
+      applyStaffUiPatch();
+      const mo = new MutationObserver(() => applyStaffUiPatch());
+      mo.observe(document.body, { childList: true, subtree: true, characterData: true });
+      setInterval(applyStaffUiPatch, 1200);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPatch);
+    } else {
+      initPatch();
+    }
+  })();
+  </script>
+
 </body>
 </html>
