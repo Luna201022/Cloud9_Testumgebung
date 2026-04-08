@@ -39,7 +39,7 @@
         <img src="/logo.png" alt="Cloud9" style="width:46px;height:46px;border-radius:12px;background:#fff;padding:6px" />
         <div>
           <div style="font-size:20px;font-weight:900">Cloud9 Staff</div>
-          <div class="small2 muted">Bestellungen & Service live ansehen • „Erledigt“ = erledigt</div>
+          <div class="small2 muted">Bestellungen & Service live ansehen • „Gesendet“ = erledigt</div>
         </div>
       </div>
 
@@ -69,9 +69,9 @@
         <div>
           <div class="small2 muted">Filter</div>
           <select id="statusFilter" class="input2" style="min-width:150px">
-            <option value="NEW" selected>Nur Neu</option>
+            <option value="NEW" selected>Nur NEW</option>
             <option value="ALL">Alle</option>
-            <option value="DONE">Nur Erledigt</option>
+            <option value="DONE">Nur DONE</option>
           </select>
         </div>
 
@@ -114,7 +114,7 @@
           <div style="font-weight:700;margin-bottom:6px">Kurz erklärt</div>
           <ul style="margin:0;padding-left:18px;line-height:1.55">
             <li><b>PIN:</b> wie in PowerShell (Authorization: Bearer …).</li>
-            <li><b>Erledigt:</b> setzt Status auf DONE (verschwindet bei „Nur Neu“).</li>
+            <li><b>Gesendet:</b> setzt Status auf DONE (verschwindet bei „Nur NEW“).</li>
             <li><b>Löschen:</b> entfernt die Bestellung.</li>
             <li><b>Sound:</b> einmal klicken (Browser-Sperre), danach piept’s bei neuen Bestellungen.</li>
           </ul>
@@ -126,5 +126,33 @@
   <div id="toast" class="toast" style="display:none"></div>
 
   <script src="/staff.js?v=20260228_finalfix"></script>
+
+<script>
+(function () {
+  function moveTableCardRight() {
+    const tableCard = document.getElementById('c9-table-card');
+    const rightCard = document.querySelector('.grid > .card2:nth-child(2)');
+    if (!tableCard || !rightCard) return;
+    if (tableCard.parentElement !== rightCard) {
+      tableCard.style.marginTop = '14px';
+      rightCard.appendChild(tableCard);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', moveTableCardRight);
+  } else {
+    moveTableCardRight();
+  }
+
+  let tries = 0;
+  const t = setInterval(() => {
+    moveTableCardRight();
+    tries += 1;
+    if (tries > 20) clearInterval(t);
+  }, 500);
+})();
+</script>
+
 </body>
 </html>
