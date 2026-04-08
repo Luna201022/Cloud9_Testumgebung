@@ -152,16 +152,18 @@
   function getOpenTables() {
     const map = new Map();
     for (const order of state.orders) {
+      if (String(order.status || 'NEW').toUpperCase() === 'DONE') continue;
       const tableId = Number(order.tableId || 0);
       if (!tableId) continue;
       const items = Array.isArray(order.items) ? order.items : [];
-      let amountCount = 0;
+      let openCount = 0;
       for (const it of items) {
         const qty = Math.max(0, Math.trunc(Number(it?.qty) || 0));
-        amountCount += qty;
+        const done = Math.max(0, Math.trunc(Number(it?.done) || 0));
+        openCount += Math.max(0, qty - done);
       }
-      if (!amountCount) continue;
-      map.set(tableId, (map.get(tableId) || 0) + amountCount);
+      if (!openCount) continue;
+      map.set(tableId, (map.get(tableId) || 0) + openCount);
     }
     return [...map.entries()].sort((a, b) => a[0] - b[0]).map(([tableId, count]) => ({ tableId, count }));
   }
@@ -206,7 +208,7 @@
     for (const r of rows) {
       const openQty = Math.max(0, r.totalQty - r.doneQty);
       tableTotal += r.totalQty * r.unitPrice;
-      openTotal += r.totalQty * r.unitPrice;
+      openTotal += openQty * r.unitPrice;
       const sel = Math.max(0, Math.min(openQty, Math.trunc(Number(selForTable[r.key]) || 0)));
       selectedTotal += sel * r.unitPrice;
     }
@@ -341,30 +343,15 @@
 
   function buildLayout() {
     injectStyles();
+    if (document.getElementById('c9-table-card')) return;
 
-    const old = document.getElementById('c9-table-card');
-    if (old && !old.closest('.grid > .card2:nth-child(2), .grid > *:nth-child(2)')) {
-      try { old.remove(); } catch {}
-    }
-    if (document.getElementById('c9-table-root')) return;
-
-    const rightCard =
-      document.querySelector('.grid > .card2:nth-child(2)') ||
-      document.querySelector('.grid > *:nth-child(2)') ||
-      findLinksCard();
-
-    if (rightCard) {
-      let host = document.getElementById('c9-table-card');
-      if (!host) {
-        host = document.createElement('div');
-        host.className = 'c9-card';
-        host.id = 'c9-table-card';
-        host.style.marginTop = '14px';
-        rightCard.appendChild(host);
-      }
-      if (!document.getElementById('c9-table-root')) {
-        host.innerHTML = '<div id="c9-table-root"></div>';
-      }
+    const linksCard = findLinksCard();
+    if (linksCard) {
+      const tableCard = document.createElement('div');
+      tableCard.className = 'c9-card';
+      tableCard.id = 'c9-table-card';
+      tableCard.innerHTML = '<div id="c9-table-root"></div>';
+      linksCard.insertAdjacentElement('afterend', tableCard);
       return;
     }
 
@@ -407,10 +394,8 @@
         ? safe(String(x.type || '').toUpperCase() === 'PAY' ? 'Bezahlen' : 'Bedienung rufen')
         : summarizeItems(x.items);
       const sumHtml = isReq ? '—' : money(x.total ?? 0);
-      const doneLabel = isReq ? 'Erledigt' : 'Erledigt';
-      const extraBtns = isReq ? '' : `
-        <button class="btn2" type="button" data-open-table="${safe(tableId)}">Tisch öffnen</button>
-        <button class="btn2 danger" type="button" data-clear-table="${safe(tableId)}">Tisch leeren</button>`;
+      const doneLabel = 'Erledigt';
+      const extraBtns = '';
       return `
 <tr>
   <td class="mono"><b>${safe(tableId)}</b></td>
@@ -457,8 +442,7 @@
       const openQty = Math.max(0, r.totalQty - r.doneQty);
       const selected = Math.max(0, Math.min(openQty, Math.trunc(Number(selectedMap[r.key]) || 0)));
       const selectedSum = selected * r.unitPrice;
-      const rowCls = openQty === 0 && r.doneQty > 0 ? 'c9-item c9-done' : (r.doneQty > 0 ? 'c9-item c9-partial' : 'c9-item');
-      const disabledAttr = openQty === 0 ? 'disabled' : '';
+      const rowCls = openQty === 0 ? 'c9-item c9-done' : (r.doneQty > 0 ? 'c9-item c9-partial' : 'c9-item');
       return `
         <div class="${rowCls}">
           <div>
@@ -474,9 +458,9 @@
             <div class="c9-value">${money(selectedSum)}</div>
           </div>
           <div class="c9-qty">
-            <button type="button" data-sel-minus="${safe(r.key)}" ${disabledAttr}>−</button>
-            <input type="text" inputmode="numeric" value="${selected}" data-sel-input="${safe(r.key)}" ${disabledAttr}/>
-            <button type="button" data-sel-plus="${safe(r.key)}" ${disabledAttr}>+</button>
+            <button type="button" data-sel-minus="${safe(r.key)}">−</button>
+            <input type="text" inputmode="numeric" value="${selected}" data-sel-input="${safe(r.key)}" />
+            <button type="button" data-sel-plus="${safe(r.key)}">+</button>
           </div>
         </div>`;
     }).join('') : '<div class="c9-sub">Kein Tisch gewählt.</div>';
@@ -511,7 +495,7 @@
       <div class="c9-title">Tische mit offenen Beträgen</div>
       <div class="c9-tablechips">${chipsHtml}</div>
       ${tableId ? `<div class="c9-title" style="font-size:28px;margin-bottom:0">Tisch ${tableId}</div>
-        <div class="c9-sub">Hier werden offene und erledigte Positionen des Tisches für die Bezahlung zusammen angezeigt.</div>
+        <div class="c9-sub">Hier werden offene und bereits erledigte Positionen des Tisches für die Bezahlung zusammen angezeigt.</div>
         <div class="c9-totals">
           Offener Betrag: <b>${money(totals.openTotal)}</b><br>
           Ausgewählt: <b>${money(totals.selectedTotal)}</b><br>
