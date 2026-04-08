@@ -152,18 +152,16 @@
   function getOpenTables() {
     const map = new Map();
     for (const order of state.orders) {
-      if (String(order.status || 'NEW').toUpperCase() === 'DONE') continue;
       const tableId = Number(order.tableId || 0);
       if (!tableId) continue;
       const items = Array.isArray(order.items) ? order.items : [];
-      let openCount = 0;
+      let amountCount = 0;
       for (const it of items) {
         const qty = Math.max(0, Math.trunc(Number(it?.qty) || 0));
-        const done = Math.max(0, Math.trunc(Number(it?.done) || 0));
-        openCount += Math.max(0, qty - done);
+        amountCount += qty;
       }
-      if (!openCount) continue;
-      map.set(tableId, (map.get(tableId) || 0) + openCount);
+      if (!amountCount) continue;
+      map.set(tableId, (map.get(tableId) || 0) + amountCount);
     }
     return [...map.entries()].sort((a, b) => a[0] - b[0]).map(([tableId, count]) => ({ tableId, count }));
   }
@@ -208,7 +206,7 @@
     for (const r of rows) {
       const openQty = Math.max(0, r.totalQty - r.doneQty);
       tableTotal += r.totalQty * r.unitPrice;
-      openTotal += openQty * r.unitPrice;
+      openTotal += r.totalQty * r.unitPrice;
       const sel = Math.max(0, Math.min(openQty, Math.trunc(Number(selForTable[r.key]) || 0)));
       selectedTotal += sel * r.unitPrice;
     }
@@ -409,7 +407,7 @@
         ? safe(String(x.type || '').toUpperCase() === 'PAY' ? 'Bezahlen' : 'Bedienung rufen')
         : summarizeItems(x.items);
       const sumHtml = isReq ? '—' : money(x.total ?? 0);
-      const doneLabel = isReq ? 'Erledigt' : 'Gesendet';
+      const doneLabel = isReq ? 'Erledigt' : 'Erledigt';
       const extraBtns = isReq ? '' : `
         <button class="btn2" type="button" data-open-table="${safe(tableId)}">Tisch öffnen</button>
         <button class="btn2 danger" type="button" data-clear-table="${safe(tableId)}">Tisch leeren</button>`;
@@ -459,8 +457,10 @@
       const openQty = Math.max(0, r.totalQty - r.doneQty);
       const selected = Math.max(0, Math.min(openQty, Math.trunc(Number(selectedMap[r.key]) || 0)));
       const selectedSum = selected * r.unitPrice;
+      const rowCls = openQty === 0 && r.doneQty > 0 ? 'c9-item c9-done' : (r.doneQty > 0 ? 'c9-item c9-partial' : 'c9-item');
+      const disabledAttr = openQty === 0 ? 'disabled' : '';
       return `
-        <div class="c9-item">
+        <div class="${rowCls}">
           <div>
             <div class="c9-name">${safe(r.label)}</div>
             <div class="c9-meta">Offen: ${openQty} · Erledigt: ${r.doneQty} · Gesamt: ${r.totalQty}</div>
@@ -474,9 +474,9 @@
             <div class="c9-value">${money(selectedSum)}</div>
           </div>
           <div class="c9-qty">
-            <button type="button" data-sel-minus="${safe(r.key)}">−</button>
-            <input type="text" inputmode="numeric" value="${selected}" data-sel-input="${safe(r.key)}" />
-            <button type="button" data-sel-plus="${safe(r.key)}">+</button>
+            <button type="button" data-sel-minus="${safe(r.key)}" ${disabledAttr}>−</button>
+            <input type="text" inputmode="numeric" value="${selected}" data-sel-input="${safe(r.key)}" ${disabledAttr}/>
+            <button type="button" data-sel-plus="${safe(r.key)}" ${disabledAttr}>+</button>
           </div>
         </div>`;
     }).join('') : '<div class="c9-sub">Kein Tisch gewählt.</div>';
@@ -508,12 +508,12 @@
       </div>` : '';
 
     root.innerHTML = `
-      <div class="c9-title">Tische mit offenen Bestellungen</div>
+      <div class="c9-title">Tische mit offenen Beträgen</div>
       <div class="c9-tablechips">${chipsHtml}</div>
       ${tableId ? `<div class="c9-title" style="font-size:28px;margin-bottom:0">Tisch ${tableId}</div>
-        <div class="c9-sub">Hier werden offene und bereits erledigte Positionen des Tisches zusammen angezeigt.</div>
+        <div class="c9-sub">Hier werden offene und erledigte Positionen des Tisches für die Bezahlung zusammen angezeigt.</div>
         <div class="c9-totals">
-          Offen gesamt: <b>${money(totals.openTotal)}</b><br>
+          Offener Betrag: <b>${money(totals.openTotal)}</b><br>
           Ausgewählt: <b>${money(totals.selectedTotal)}</b><br>
           <span style="opacity:.85">Tisch komplett: ${money(totals.tableTotal)}</span>
         </div>
