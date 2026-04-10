@@ -343,33 +343,42 @@
 
   function buildLayout() {
     injectStyles();
+    if (document.getElementById('c9-table-card')) return;
 
-    const rightCard = document.querySelector('.grid > .card2:nth-child(2)');
-    if (!rightCard) return;
-
-    // Falls aus älteren Versionen noch ein Wrapper oder falsch platzierter Block da ist: raus damit
-    const oldWrap = document.getElementById('c9-enhanced-wrap');
-    if (oldWrap) {
-      try { oldWrap.remove(); } catch {}
-    }
-
-    let tableCard = document.getElementById('c9-table-card');
-    if (!tableCard) {
-      tableCard = document.createElement('div');
+    const linksCard = findLinksCard();
+    if (linksCard) {
+      const tableCard = document.createElement('div');
       tableCard.className = 'c9-card';
       tableCard.id = 'c9-table-card';
-      tableCard.style.marginTop = '14px';
       tableCard.innerHTML = '<div id="c9-table-root"></div>';
+      linksCard.insertAdjacentElement('afterend', tableCard);
+      return;
     }
 
-    if (tableCard.parentElement !== rightCard) {
-      try { tableCard.remove(); } catch {}
-      rightCard.appendChild(tableCard);
-    }
+    const rowsContainer = rowsEl?.closest('table')?.parentElement || rowsEl?.parentElement || null;
+    if (!rowsContainer) return;
+    const liveSection = rowsContainer.closest('.card, .panel, .box, section, div') || rowsContainer.parentElement;
+    if (!liveSection) return;
 
-    if (!document.getElementById('c9-table-root')) {
-      tableCard.innerHTML = '<div id="c9-table-root"></div>';
-    }
+    const wrap = document.createElement('div');
+    wrap.id = 'c9-enhanced-wrap';
+    wrap.className = 'c9-flex';
+
+    const left = document.createElement('div');
+    left.className = 'c9-left';
+    const right = document.createElement('div');
+    right.className = 'c9-right';
+
+    liveSection.parentNode.insertBefore(wrap, liveSection);
+    wrap.appendChild(left);
+    wrap.appendChild(right);
+    left.appendChild(liveSection);
+
+    const tableCard = document.createElement('div');
+    tableCard.className = 'c9-card';
+    tableCard.id = 'c9-table-card';
+    tableCard.innerHTML = '<div id="c9-table-root"></div>';
+    right.appendChild(tableCard);
   }
 
   function renderLiveList(list) {
@@ -385,10 +394,8 @@
         ? safe(String(x.type || '').toUpperCase() === 'PAY' ? 'Bezahlen' : 'Bedienung rufen')
         : summarizeItems(x.items);
       const sumHtml = isReq ? '—' : money(x.total ?? 0);
-      const doneLabel = isReq ? 'Erledigt' : 'Gesendet';
-      const extraBtns = isReq ? '' : `
-        <button class="btn2" type="button" data-open-table="${safe(tableId)}">Tisch öffnen</button>
-        <button class="btn2 danger" type="button" data-clear-table="${safe(tableId)}">Tisch leeren</button>`;
+      const doneLabel = 'Erledigt';
+      const extraBtns = '';
       return `
 <tr>
   <td class="mono"><b>${safe(tableId)}</b></td>
@@ -435,8 +442,9 @@
       const openQty = Math.max(0, r.totalQty - r.doneQty);
       const selected = Math.max(0, Math.min(openQty, Math.trunc(Number(selectedMap[r.key]) || 0)));
       const selectedSum = selected * r.unitPrice;
+      const rowCls = openQty === 0 ? 'c9-item c9-done' : (r.doneQty > 0 ? 'c9-item c9-partial' : 'c9-item');
       return `
-        <div class="c9-item">
+        <div class="${rowCls}">
           <div>
             <div class="c9-name">${safe(r.label)}</div>
             <div class="c9-meta">Offen: ${openQty} · Erledigt: ${r.doneQty} · Gesamt: ${r.totalQty}</div>
@@ -484,12 +492,12 @@
       </div>` : '';
 
     root.innerHTML = `
-      <div class="c9-title">Tische mit offenen Bestellungen</div>
+      <div class="c9-title">Tische mit offenen Beträgen</div>
       <div class="c9-tablechips">${chipsHtml}</div>
       ${tableId ? `<div class="c9-title" style="font-size:28px;margin-bottom:0">Tisch ${tableId}</div>
-        <div class="c9-sub">Hier werden offene und bereits erledigte Positionen des Tisches zusammen angezeigt.</div>
+        <div class="c9-sub">Hier werden offene und bereits erledigte Positionen des Tisches für die Bezahlung zusammen angezeigt.</div>
         <div class="c9-totals">
-          Offen gesamt: <b>${money(totals.openTotal)}</b><br>
+          Offener Betrag: <b>${money(totals.openTotal)}</b><br>
           Ausgewählt: <b>${money(totals.selectedTotal)}</b><br>
           <span style="opacity:.85">Tisch komplett: ${money(totals.tableTotal)}</span>
         </div>
