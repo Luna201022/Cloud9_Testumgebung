@@ -503,7 +503,7 @@
         </div>
         <div class="c9-actions">
           <button class="c9-btn" type="button" id="c9-select-all">Alles auswählen</button>
-          <button class="c9-btn primary" type="button" id="c9-mark-selected">Löschen</button>
+          <button class="c9-btn primary" type="button" id="c9-mark-selected">Bezahlt</button>
           <button class="c9-btn danger" type="button" id="c9-clear-table">Tisch leeren</button>
         </div>
         <div class="c9-items">${itemsHtml}</div>
